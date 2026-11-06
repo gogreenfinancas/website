@@ -284,6 +284,17 @@ details p{color:var(--muted);margin-top:10px;max-width:65ch}
 
 footer{border-top:1px solid var(--line)}
 .rod-marca{display:inline-flex;align-items:center;gap:8px}.rod-logo{width:22px;height:22px;border-radius:50%;flex:none}
+#painel{border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);padding:0;width:min(1100px,calc(100vw - 32px));max-height:calc(100vh - 32px)}
+#painel::backdrop{background:rgba(0,0,0,.55)}
+#painel .p-cab{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}
+#painel .p-cab b{font-family:var(--f-display);font-size:1.2rem}
+#painel .p-corpo{padding:18px}
+#painel form{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+#painel input{font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);min-width:0;flex:1 1 200px}
+#painel button{font:inherit;cursor:pointer;padding:10px 16px;border-radius:10px;border:0;background:var(--leaf);color:var(--bg);font-weight:700}
+#painel .p-fechar{background:transparent;color:var(--muted);padding:6px 10px;font-size:1.3rem}
+#painel iframe{width:100%;height:calc(100vh - 190px);min-height:420px;border:0;border-radius:10px;background:#fff}
+#painel .p-msg{min-height:1.4em;margin:8px 0 0;color:var(--muted);font-size:var(--s1)}
 footer .wrap{padding-block:28px;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;color:var(--muted);font-size:var(--s1)}
 
 
@@ -360,6 +371,7 @@ p,li,td,th,summary,.small,.lead{text-wrap:pretty}
 .price p strong{color:var(--ink)}
 @media (max-width:560px){table{min-width:0;font-size:.82rem}th,td{padding:9px 8px}th:first-child,td:first-child{padding-left:12px}}
 </style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="a24def23-97f7-4bfe-b9e2-e7dc47f63d24" data-domains="gogreen.app.br,www.gogreen.app.br"></script>
 </head><body style="margin:0">
 
 <div class="wrap">
@@ -516,7 +528,7 @@ p,li,td,th,summary,.small,.lead{text-wrap:pretty}
     </div>
   </section>
 
-  <section>
+  <section id="jogo">
     <div class="wrap">
       <p class="eyebrow">Para não desistir no&nbsp;meio do&nbsp;caminho</p>
       <h2 style="margin-top:10px">Sair do&nbsp;vermelho vira jogo.</h2>
@@ -572,7 +584,7 @@ p,li,td,th,summary,.small,.lead{text-wrap:pretty}
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section id="perguntas" style="padding-top:0">
     <div class="wrap">
       <p class="eyebrow">Perguntas</p>
       <h2 style="margin-top:10px">Antes de&nbsp;instalar</h2>
@@ -598,7 +610,7 @@ p,li,td,th,summary,.small,.lead{text-wrap:pretty}
     <div class="wrap policy">
       <p class="eyebrow">Política de&nbsp;privacidade</p>
       <h2 style="margin-top:10px">Política de&nbsp;privacidade do&nbsp;GoGreen</h2>
-      <p class="small">Última atualização: 5&nbsp;de&nbsp;novembro de&nbsp;2026</p>
+      <p class="small">Última atualização: 6&nbsp;de&nbsp;novembro de&nbsp;2026</p>
       <h3>O&nbsp;que o&nbsp;app lê</h3>
       <p>Com a&nbsp;sua permissão de&nbsp;acesso às&nbsp;notificações, o&nbsp;GoGreen lê&nbsp;as&nbsp;notificações dos apps de&nbsp;banco, cartão e&nbsp;vale que você escolher, para extrair valor, data, estabelecimento e&nbsp;forma de&nbsp;pagamento. Notificações de&nbsp;outros apps são ignoradas.</p>
       <h3>Onde os&nbsp;dados ficam</h3>
@@ -609,6 +621,8 @@ p,li,td,th,summary,.small,.lead{text-wrap:pretty}
         <li>Google Play Install Referrer, para ler o&nbsp;código de&nbsp;convite de&nbsp;quem indicou você.</li>
       </ul>
       <p>O&nbsp;app não usa anúncios, análise de&nbsp;uso nem rastreamento.</p>
+      <h3>Este site</h3>
+      <p>O&nbsp;site gogreen.app.br conta as&nbsp;visitas com o&nbsp;Umami, sem cookies e&nbsp;sem guardar dados pessoais: só&nbsp;números gerais, como páginas vistas, tempo de&nbsp;visita e&nbsp;até onde a&nbsp;página foi lida. Nada disso tem relação com o&nbsp;app nem com os&nbsp;seus gastos.</p>
       <h3>Compartilhamento</h3>
       <p>Só&nbsp;sai do&nbsp;aparelho o&nbsp;que você escolher compartilhar: o&nbsp;arquivo CSV que você exporta e&nbsp;os&nbsp;cartões de&nbsp;conquista, que não mostram valores em&nbsp;reais.</p>
       <h3>Seus direitos (LGPD)</h3>
@@ -619,10 +633,54 @@ p,li,td,th,summary,.small,.lead{text-wrap:pretty}
 
 <footer>
   <div class="wrap">
-    <span class="rod-marca"><img class="rod-logo" src="img/icone-192.png" alt="" width="22" height="22"><span>GoGreen · feito no&nbsp;Brasil para sair do&nbsp;vermelho</span></span>
+    <span class="rod-marca"><img class="rod-logo" id="rod-logo" src="img/icone-192.png" alt="" width="22" height="22"><span>GoGreen · feito no&nbsp;Brasil para sair do&nbsp;vermelho</span></span>
     <span>Fale com o&nbsp;Verdi no <a href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener">@gogreen.fin</a> e&nbsp;no <a href="https://www.youtube.com/@Gogreen-fin" target="_blank" rel="noopener">YouTube</a><span class="so-email" hidden> · <a class="email" href="#"></a></span> · <a href="#privacidade">Privacidade</a></span>
   </div>
 </footer>
+<dialog id="painel" aria-label="Painel de visitas">
+  <div class="p-cab"><b>Visitas do site</b><button type="button" class="p-fechar" aria-label="Fechar">×</button></div>
+  <div class="p-corpo">
+    <form id="p-form"><input id="p-senha" type="password" autocomplete="off" placeholder="Senha" aria-label="Senha"><button type="submit">Abrir</button></form>
+    <p class="p-msg" id="p-msg"></p>
+    <div id="p-area" hidden><p class="small" style="margin:0 0 10px">Se o painel não aparecer abaixo, <a id="p-link" href="#" target="_blank" rel="noopener">abra em outra aba</a>.</p><iframe id="p-frame" title="Painel de visitas" loading="lazy"></iframe></div>
+  </div>
+</dialog>
+<script>
+/* Medição de visitas (Umami, sem cookies): seções vistas, rolagem e tempo na página. */
+(function(){
+  function ev(n,d){try{if(window.umami)umami.track(n,d)}catch(e){}}
+  var vistas={};
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(e.isIntersecting&&!vistas[id]){vistas[id]=1;ev('secao',{nome:id});io.unobserve(e.target)}})},{threshold:.35});
+    document.querySelectorAll('main section[id]').forEach(function(s){io.observe(s)});
+  }
+  var marcas=[25,50,75,100],feitas={};
+  function rol(){var h=document.documentElement,max=h.scrollHeight-h.clientHeight;var pct=max>0?Math.round((h.scrollTop||document.body.scrollTop)/max*100):100;
+    marcas.forEach(function(m){if(pct>=m-2&&!feitas[m]){feitas[m]=1;ev('rolagem',{ate:m+'%'});if(m===100)ev('viu-tudo')}})}
+  addEventListener('scroll',rol,{passive:true});
+  var seg=0,tempos={30:'30s',60:'1min',180:'3min',300:'5min'};
+  setInterval(function(){if(document.visibilityState==='visible'){seg+=5;if(tempos[seg])ev('tempo',{minimo:tempos[seg]})}},5000);
+})();
+/* Painel secreto: 15 toques no logo do rodapé. O link do painel fica cifrado (AES-GCM, chave pela senha). */
+(function(){
+  var PAINEL_CIFRADO="";
+  var logo=document.getElementById('rod-logo'),dlg=document.getElementById('painel'),n=0,t=0;
+  logo.addEventListener('click',function(){var a=Date.now();if(a-t>3000)n=0;t=a;if(++n>=15){n=0;abrir()}});
+  function abrir(){document.getElementById('p-msg').textContent='';if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');setTimeout(function(){document.getElementById('p-senha').focus()},50)}
+  dlg.querySelector('.p-fechar').addEventListener('click',function(){dlg.close()});
+  function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
+  async function decifra(senha){var p=PAINEL_CIFRADO.split('.'),sal=b64(p[0]),iv=b64(p[1]),dado=b64(p[2]);
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(senha),'PBKDF2',false,['deriveKey']);
+    var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:sal,iterations:250000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    return new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:iv},k,dado))}
+  document.getElementById('p-form').addEventListener('submit',async function(e){e.preventDefault();var msg=document.getElementById('p-msg');
+    if(!PAINEL_CIFRADO){msg.textContent='Painel ainda não configurado.';return}
+    msg.textContent='Abrindo…';
+    try{var url=await decifra(document.getElementById('p-senha').value);msg.textContent='';
+      document.getElementById('p-form').hidden=true;document.getElementById('p-link').href=url;document.getElementById('p-frame').src=url;document.getElementById('p-area').hidden=false}
+    catch(err){msg.textContent='Senha incorreta.'}});
+})();
+</script>
 <script>
 /* Preencha quando tiver. Vazio = não aparece. */
 const CONTATO_EMAIL = "gogreen.financas@gmail.com";
