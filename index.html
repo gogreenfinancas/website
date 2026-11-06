@@ -663,7 +663,7 @@ p,li,td,th,summary,.small,.lead{text-wrap:pretty}
 })();
 /* Painel secreto: 15 toques no logo do rodapé. O link do painel fica cifrado (AES-GCM, chave pela senha). */
 (function(){
-  var PAINEL_CIFRADO="";
+  var PAINEL_CIFRADO="kWFg0R5vITBQ8s+pp8A+Qg==.b7lg7OLDgwfzkdBx.8Q7ZCvQ9f7fKgZ65oA6Ce4+rZMXRgr3X9C2KSKp+nLgCU/Mtwotkh0t2PxZRuCjISIi6ZGTYTwNA1vkiNQ==";
   var logo=document.getElementById('rod-logo'),dlg=document.getElementById('painel'),n=0,t=0;
   logo.addEventListener('click',function(){var a=Date.now();if(a-t>3000)n=0;t=a;if(++n>=15){n=0;abrir()}});
   function abrir(){document.getElementById('p-msg').textContent='';if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');setTimeout(function(){document.getElementById('p-senha').focus()},50)}
