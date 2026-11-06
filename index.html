@@ -1,0 +1,392 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>GoGreen: saia do vermelho</title>
+<link rel="icon" type="image/png" href="/img/icone-192.png">
+<link rel="canonical" href="https://gogreen.app.br/">
+<meta property="og:title" content="GoGreen: saia do vermelho">
+<meta property="og:description" content="O app Android que lê a notificação do seu banco, anota o gasto e avisa antes de estourar o teto. Sem anúncios, sem login, tudo no seu celular.">
+<meta property="og:image" content="https://gogreen.app.br/img/grafico-de-recursos.png">
+<meta property="og:url" content="https://gogreen.app.br/">
+<meta property="og:locale" content="pt_BR">
+<meta name="description" content="GoGreen: o app Android que lê a notificação do seu banco, anota o gasto e avisa antes de estourar o teto. Sem internet, sem anúncios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: uma coluna de leitura com faixas largas; o herói mostra a notificação virando lançamento, e a régua vermelho→verde costura a página. */
+:root{
+  --bg:#F3F7F0; --card:#FFFFFF; --ink:#11281A; --muted:#4D5C4F; --line:#D4DECF;
+  --leaf:#2E7D32; --sprout:#6DB33F; --deep:#123B1C; --on-deep:#E8F3E3;
+  --red:#C2372C; --amber:#D99A12;
+  --f-display:"Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --f-body:"Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --s1:.8125rem; --s2:1rem; --s3:1.1875rem; --s4:1.5rem; --s5:2.25rem; --s6:clamp(2.6rem,7vw,4.6rem);
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0C130E; --card:#152018; --ink:#E3ECE0; --muted:#A1B19F; --line:#26352A;
+  --leaf:#73C178; --sprout:#9AD861; --deep:#0F2A16; --on-deep:#DDEED7;
+  --red:#F0695D; --amber:#F0BF4C; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0C130E; --card:#152018; --ink:#E3ECE0; --muted:#A1B19F; --line:#26352A;
+  --leaf:#73C178; --sprout:#9AD861; --deep:#0F2A16; --on-deep:#DDEED7;
+  --red:#F0695D; --amber:#F0BF4C; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:var(--s2);line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:var(--s5);font-weight:800}
+h3{font-size:var(--s3);font-weight:700}
+p{margin:0}
+a{color:var(--leaf)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sprout);outline-offset:3px;border-radius:6px}
+.eyebrow{font-family:var(--f-mono);font-size:var(--s1);letter-spacing:.08em;text-transform:uppercase;color:var(--leaf)}
+section{padding-block:clamp(56px,9vw,96px)}
+.lead{font-size:var(--s3);color:var(--muted);max-width:60ch}
+
+/* topo */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:1.6rem;line-height:1;color:var(--ink);text-decoration:none}
+.logo .go{color:var(--ink)}.logo .gr{color:var(--leaf)}
+.logo svg{width:34px;height:34px}
+.top nav{display:flex;gap:20px;font-weight:500}
+.top nav a{color:var(--muted);text-decoration:none}
+.top nav a:hover{color:var(--ink)}
+@media (max-width:620px){.top nav .opt{display:none}}
+
+/* herói */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(24px,5vw,56px) clamp(56px,8vw,88px)}
+.hero>*{min-width:0}
+.hero h1{font-size:var(--s6);font-weight:800}
+.strike{position:relative;color:var(--red);white-space:nowrap}
+.strike::after{content:"";position:absolute;left:-2%;right:-2%;top:55%;height:.09em;background:var(--red);transform:rotate(-4deg);border-radius:4px}
+.green{color:var(--leaf)}
+.red{color:var(--red)}
+.hero .lead{margin-top:22px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:var(--s2);border:0;cursor:pointer;font-family:inherit}
+.btn-main{background:var(--leaf);color:var(--bg)}
+.btn-main:hover{filter:brightness(1.08)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.small{font-size:var(--s1);color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:var(--s1);color:var(--muted)}
+.tags span::before{content:"✓ ";color:var(--leaf);font-weight:700}
+
+.phone{justify-self:center;width:min(330px,100%);aspect-ratio:9/17;max-width:100%;background:var(--deep);border-radius:38px;padding:16px 14px;box-shadow:0 30px 60px -30px rgba(10,40,18,.45);display:flex;flex-direction:column;gap:14px;position:relative}
+.phone .bar{display:flex;justify-content:space-between;color:var(--on-deep);opacity:.7;font-family:var(--f-mono);font-size:.72rem;padding:4px 10px 0}
+.notif{background:rgba(255,255,255,.1);color:var(--on-deep);border-radius:18px;padding:12px 14px;font-size:.82rem;line-height:1.4}
+.notif b{display:block;font-size:.76rem;opacity:.75;font-weight:600;margin-bottom:2px}
+.arrow{align-self:center;color:var(--sprout);font-family:var(--f-mono);font-size:.72rem;display:flex;align-items:center;gap:6px}
+.entry{background:var(--card);color:var(--ink);border-radius:18px;padding:14px;display:grid;gap:10px}
+.entry .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.entry .val{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:1.05rem}
+.chip{font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:999px;background:color-mix(in srgb,var(--sprout) 22%,transparent);color:var(--leaf)}
+.meter{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.meter i{display:block;height:100%;width:68%;background:var(--leaf);border-radius:99px;animation:fill 1.6s cubic-bezier(.2,.8,.2,1) both .4s}
+@keyframes fill{from{width:41%}to{width:68%}}
+.entry .small{font-size:.74rem}
+.toast{margin-top:auto;background:rgba(255,255,255,.08);color:var(--on-deep);border-radius:14px;padding:10px 12px;font-size:.76rem;display:flex;gap:8px;align-items:center}
+.toast em{font-style:normal;color:var(--sprout);font-weight:600}
+@media (max-width:820px){.hero{grid-template-columns:1fr}.phone{aspect-ratio:auto}}
+
+/* régua */
+.ruler{background:var(--card);border-block:1px solid var(--line)}
+.ruler .wrap{padding-block:30px;display:grid;gap:14px}
+.scale{display:grid;grid-template-columns:90fr 10fr 18fr;height:14px;border-radius:99px;overflow:hidden}
+.scale i:nth-child(1){background:var(--leaf)}.scale i:nth-child(2){background:var(--amber)}.scale i:nth-child(3){background:var(--red)}
+.scale-legend{display:grid;grid-template-columns:90fr 10fr 18fr;font-family:var(--f-mono);font-size:var(--s1);color:var(--muted);font-variant-numeric:tabular-nums}
+.scale-legend span:nth-child(2){text-align:center}.scale-legend span:nth-child(3){text-align:right}
+.ruler p{max-width:70ch;color:var(--muted)}
+.ruler p strong{color:var(--ink)}
+
+/* passos */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px;counter-reset:passo}
+.step{display:grid;gap:10px;align-content:start;min-width:0}
+.step::before{counter-increment:passo;content:counter(passo);font-family:var(--f-display);font-weight:800;font-size:2.4rem;color:var(--sprout);line-height:1}
+.step p{color:var(--muted)}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* privacidade */
+.deep{background:var(--deep);color:var(--on-deep)}
+.deep .eyebrow{color:var(--sprout)}
+.deep .lead{color:color-mix(in srgb,var(--on-deep) 78%,transparent)}
+.priv{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 40px;margin-top:36px}
+.priv div{border-top:1px solid color-mix(in srgb,var(--on-deep) 22%,transparent);padding-top:16px;min-width:0}
+.priv p{color:color-mix(in srgb,var(--on-deep) 78%,transparent);margin-top:6px}
+@media (max-width:640px){.priv{grid-template-columns:1fr}}
+
+/* jogo */
+.game{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start;margin-top:36px}
+.game>*{min-width:0}
+.levels{display:grid;gap:12px}
+.lv{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+.lv .ic{font-size:1.6rem;text-align:center}
+.lv p{color:var(--muted);font-size:.92rem}
+.lv .xp{font-family:var(--f-mono);font-size:var(--s1);color:var(--leaf);font-variant-numeric:tabular-nums}
+.feat{display:grid;gap:18px}
+.feat p{color:var(--muted)}
+@media (max-width:760px){.game{grid-template-columns:1fr}}
+
+/* preços */
+.plans{overflow-x:auto;margin-top:36px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{text-align:left;padding:13px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--f-display);font-size:var(--s3)}
+td:nth-child(3),th:nth-child(3){background:color-mix(in srgb,var(--sprout) 9%,transparent)}
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.price{padding:18px;border:1px solid var(--line);border-radius:var(--r);display:grid;gap:4px;min-width:0}
+.price.best{border-color:var(--leaf);border-width:2px}
+.price .v{font-family:var(--f-display);font-weight:800;font-size:1.9rem;font-variant-numeric:tabular-nums}
+.price p{color:var(--muted);font-size:.92rem}
+@media (max-width:700px){.prices{grid-template-columns:1fr}}
+
+/* convite */
+.invite{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;padding:28px;border-radius:var(--r);background:var(--card);border:1px dashed var(--leaf)}
+.invite>div{min-width:0;flex:1 1 320px}
+.code{font-family:var(--f-mono);font-size:1.3rem;letter-spacing:.12em;padding:10px 16px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}
+
+/* faq */
+.faq{display:grid;gap:10px;margin-top:32px;max-width:760px}
+details{border-bottom:1px solid var(--line);padding-block:14px}
+summary{cursor:pointer;font-weight:600;font-size:var(--s3);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--leaf);font-family:var(--f-mono)}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:10px;max-width:65ch}
+
+/* política */
+.policy{max-width:760px}
+.policy h3{margin-top:28px}
+.policy p,.policy li{color:var(--muted)}
+.policy p{margin-top:10px}
+.policy ul{padding-left:20px;margin:10px 0 0}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:28px;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;color:var(--muted);font-size:var(--s1)}
+
+@media (prefers-reduced-motion: reduce){.meter i{animation:none}}
+</style>
+</head><body style="margin:0">
+
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#inicio" aria-label="GoGreen, início">
+      <svg viewBox="18 18 72 72" aria-hidden="true"><defs><linearGradient id="gg-escala" x1="38.52" y1="69.48" x2="71.20" y2="38.52" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#E53935"/><stop offset=".2" stop-color="#F9A825"/><stop offset=".4" stop-color="#1B5E20"/><stop offset="1" stop-color="#1B5E20"/></linearGradient></defs><circle cx="54" cy="54" r="36" fill="#2E7D32"/><path d="M30.78,77.22 L35.08,72.92" fill="none" stroke="#A5D6A7" stroke-width="2.92" stroke-linecap="round"/><path d="M35.08,72.92 C33.36,50.56 47.12,35.08 76.36,31.64 C74.64,59.16 59.16,74.64 35.08,72.92 Z" fill="#A5D6A7"/><path d="M38.52,69.48 L46.26,58.30 L51.42,61.74 L58.30,49.70 L62.60,52.28 L69.12,41.68" fill="none" stroke="url(#gg-escala)" stroke-width="3.27" stroke-linecap="round" stroke-linejoin="round"/><path d="M71.84,44.16 L71.65,37.58 L65.68,40.38 Z" fill="#1B5E20" stroke="#1B5E20" stroke-width="1.2" stroke-linejoin="round"/><circle cx="38.52" cy="69.48" r="2.24" fill="#E53935"/></svg>
+      <span><span class="go">Go</span><span class="gr">Green</span></span>
+    </a>
+    <nav>
+      <a class="opt" href="#como-funciona">Como funciona</a>
+      <a class="opt" href="#planos">Planos</a>
+      <a href="#privacidade">Privacidade</a>
+    </nav>
+  </header>
+</div>
+
+<main id="inicio">
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow">App Android · Brasil</p>
+      <h1 style="margin-top:14px">Saia do <span class="red">vermelho</span> e fique no <span class="green">verde</span> sem anotar nada.</h1>
+      <p class="lead">O GoGreen lê a notificação do seu banco, anota o gasto na categoria certa e avisa antes de você estourar o teto do mês. Tudo fica no seu celular.</p>
+      <div class="ctas">
+        <a class="btn btn-main" id="cta-principal" href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener">Entrar na lista de espera</a>
+        <a class="btn btn-ghost" href="#como-funciona">Ver como funciona</a>
+      </div>
+      <p class="small" id="cta-nota" style="margin-top:12px">Mande <strong>QUERO</strong> no direct do @gogreen.fin e receba o link assim que sair na Google Play.</p>
+      <div class="tags"><span>Funciona sem internet</span><span>Sem senha do banco</span><span>Sem anúncios</span><span>Comece só com as dicas</span><span>Android 10 ou superior</span></div>
+    </div>
+
+    <div class="phone" role="img" aria-label="Exemplo: a notificação de uma compra de R$ 42,90 vira um lançamento em Alimentação fora, com 68% do teto usado">
+      <div class="bar"><span>12:41</span><span>●●● 5G</span></div>
+      <div class="notif"><b>App do banco · agora</b>Compra aprovada no cartão final 1234: R$ 42,90 em IFOOD *RESTAURANTE</div>
+      <div class="arrow">▼ GoGreen anotou</div>
+      <div class="entry">
+        <div class="row"><strong>iFood</strong><span class="val">R$ 42,90</span></div>
+        <div class="row"><span class="chip">Alimentação fora</span><span class="small">Cartão de crédito</span></div>
+        <div class="meter"><i></i></div>
+        <div class="row"><span class="small">68% do teto do mês</span><span class="small" style="color:var(--leaf);font-weight:600">OK</span></div>
+      </div>
+      <div class="toast">🔥 <span><em>12 dias no verde</em> · Nível 4</span></div>
+    </div>
+  </div>
+
+  <div class="ruler">
+    <div class="wrap">
+      <div class="scale" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="scale-legend"><span>OK · até 90%</span><span>Atenção</span><span>Estourou · +100%</span></div>
+      <p>Cada categoria tem um <strong>teto mensal</strong>. Até 90% do teto ela fica verde, entre 90% e 100% fica amarela e acima disso vermelha. Contas fixas, como aluguel, ficam verdes até 100%. O mês vai do dia 1 ao último dia, como numa planilha.</p>
+    </div>
+  </div>
+
+  <section id="como-funciona">
+    <div class="wrap">
+      <p class="eyebrow">Como funciona</p>
+      <h2 style="margin-top:10px">Você gasta. O GoGreen anota.</h2>
+      <div class="steps">
+        <div class="step"><h3>A notificação chega</h3><p>Você paga com o cartão, PIX ou vale-refeição e o app do banco avisa no celular, como sempre.</p></div>
+        <div class="step"><h3>O GoGreen lê e classifica</h3><p>Pega o valor, o estabelecimento e a forma de pagamento e sugere a categoria. Mostra na hora quanto do teto já foi.</p></div>
+        <div class="step"><h3>Você confirma</h3><p>Um toque na Entrada. Se corrigir a categoria uma vez, ele aprende e acerta das próximas.</p></div>
+      </div>
+      <p class="lead" style="margin-top:36px">Dinheiro vivo ou boleto? Use o botão + para lançar à mão. E no fim do mês exporte tudo em CSV para a sua planilha.</p>
+    </div>
+  </section>
+
+  <section class="deep">
+    <div class="wrap">
+      <p class="eyebrow">Privacidade</p>
+      <h2 style="margin-top:10px">Seus gastos nunca saem do celular.</h2>
+      <p class="lead" style="margin-top:16px">O GoGreen não tem servidor, não pede login e não conversa com o seu banco. Ele só lê as notificações que já aparecem na sua tela.</p>
+      <div class="priv">
+        <div><h3>Sem internet</h3><p>O app funciona offline. A única conexão é a da Google Play, para a assinatura Pro.</p></div>
+        <div><h3>Sem senha do banco</h3><p>Nada de Open Finance nem acesso à conta. Você escolhe quais apps ele acompanha.</p></div>
+        <div><h3>Sem anúncios</h3><p>Nem na versão gratuita. Ninguém compra os seus dados porque eles não vão para lugar nenhum.</p></div>
+        <div><h3>Backup na sua mão</h3><p>Os dados ficam num arquivo interno do app. Para guardar uma cópia, exporte o CSV.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sem-pegadinha">
+    <div class="wrap">
+      <p class="eyebrow">Sem pegadinha</p>
+      <h2 style="margin-top:10px">Comece só com as dicas. Libere as notificações quando confiar.</h2>
+      <p class="lead" style="margin-top:16px">Ler as notificações do seu banco é pedir muita confiança. Por isso o GoGreen não exige nada no primeiro dia: no modo só dicas ele funciona sem acesso às notificações. Você conhece o app no seu tempo e liga a leitura automática só quando quiser.</p>
+      <div class="steps">
+        <div class="step"><h3>Só dicas</h3><p>Instale e use sem dar permissão nenhuma. Você recebe uma dica por dia para gastar melhor.</p></div>
+        <div class="step"><h3>Confira você mesmo</h3><p>Ligue o modo avião e veja: tudo funciona igual. Não tem login, não tem servidor, não tem para onde os dados irem.</p></div>
+        <div class="step"><h3>Libere quando quiser</h3><p>Confiou? Ligue a leitura das notificações e o GoGreen passa a anotar sozinho. Mudou de ideia? Desligue, e ele volta a ser só dicas.</p></div>
+      </div>
+      <div class="invite" style="margin-top:40px">
+        <div>
+          <h3>Por que a gente repete tanto "sem pegadinha"?</h3>
+          <p class="small" style="margin-top:6px;font-size:var(--s2)">Porque app de finanças grátis costuma esconder alguma coisa: anúncio, venda de dados, empréstimo empurrado. Você tem razão em desconfiar. Então a gente repete, em todo lugar, o que o GoGreen não faz, e deixa você conferir no seu celular. Sem anúncio, sem senha do banco, sem login, sem internet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="verdi" class="deep">
+    <div class="wrap" style="max-width:820px">
+      <p class="eyebrow">A história do Verdi</p>
+      <h2 style="margin-top:10px">Eu já estive no vermelho.</h2>
+      <p class="lead" style="margin-top:16px">Oi, eu sou o Verdi. Já fechei mês no vermelho. Todo mês eu prometia anotar os gastos, e todo mês desistia no dia 5. Saí de lá aos poucos, um mês verde de cada vez. O GoGreen é o app que eu queria ter tido naquela época.</p>
+      <p class="lead" style="margin-top:16px">Agora quero ajudar você a sair também. E conto com quem já está saindo: se o GoGreen está ajudando você, passe adiante. Indique para um amigo ou conte a sua história no direct do @gogreen.fin. É assim que mais gente chega no verde.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Para não desistir em fevereiro</p>
+      <h2 style="margin-top:10px">Sair do vermelho vira jogo.</h2>
+      <div class="game">
+        <div class="levels" aria-label="Desafio da semana em três níveis">
+          <div class="lv"><span class="ic">🌱</span><div><h3>Broto</h3><p>Metas leves para começar.</p></div><span class="xp">30 XP</span></div>
+          <div class="lv"><span class="ic">🌳</span><div><h3>Árvore</h3><p>Aperta um pouco mais.</p></div><span class="xp">60 XP</span></div>
+          <div class="lv"><span class="ic">🌲</span><div><h3>Floresta</h3><p>Ex.: nenhum gasto variável acima de R$ 50.</p></div><span class="xp">120 XP</span></div>
+        </div>
+        <div class="feat">
+          <div><h3>Dias seguidos no verde</h3><p>Sua sequência cresce enquanto nenhuma categoria passa do teto.</p></div>
+          <div><h3>Termômetro e cofrinho</h3><p>Veja quanto já sobrou no mês e lembre de aplicar a sobra na poupança, na caixinha ou no Tesouro.</p></div>
+          <div><h3>Roleta e medalhas</h3><p>Mês fechado no verde dá giro na roleta, com prêmios como dias de Pro. São 18 medalhas para colecionar.</p></div>
+          <div><h3>Cartões para os stories</h3><p>Compartilhe conquistas com percentuais e níveis, nunca valores em reais.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="planos" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Planos</p>
+      <h2 style="margin-top:10px">O gratuito já basta para sair do vermelho.</h2>
+      <p class="lead" style="margin-top:16px">Tetos, todos os avisos, resumo, termômetro, desafios e medalhas são livres. O Pro é para quem quer mais bancos e mais histórico.</p>
+      <div class="plans">
+        <table>
+          <thead><tr><th>Recurso</th><th>Gratuito</th><th>Pro</th></tr></thead>
+          <tbody>
+            <tr><td>Bancos, cartões e VA/VR capturados</td><td>2</td><td>Ilimitados</td></tr>
+            <tr><td>Tetos, avisos, resumo e jogo</td><td>Completo</td><td>Completo</td></tr>
+            <tr><td>Histórico no resumo</td><td>Últimos 3 meses</td><td>Completo</td></tr>
+            <tr><td>Exportar CSV</td><td>Últimos 3 meses</td><td>Qualquer período</td></tr>
+            <tr><td>Categorias novas</td><td>Até 5</td><td>Ilimitadas</td></tr>
+            <tr><td>Família com nomes</td><td>Sem nomes</td><td>Com nomes</td></tr>
+            <tr><td>Retrospectiva do mês</td><td>Simples</td><td>Completa</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prices">
+        <div class="price"><span class="small">Pro Mensal</span><span class="v">R$ 6,99</span><p>por mês, cancele quando quiser. Nos 3 primeiros meses sai R$ 1,99.</p></div>
+        <div class="price best"><span class="small">Pro Anual · melhor custo</span><span class="v">R$ 49,90</span><p>por ano, sai R$ 4,16 por mês</p></div>
+        <div class="price"><span class="small">Guardião Vitalício</span><span class="v">Prêmio</span><p>não está à venda: quem fica 6 meses seguidos no verde e completa os desafios ganha o Pro para sempre.</p></div>
+      </div>
+      <p class="small" style="margin-top:14px">Cobrança pela Google Play. Se a assinatura acabar, nada é apagado: o app volta aos limites do gratuito.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="invite">
+        <div>
+          <h3>Indique um amigo e os dois ganham Pro</h3>
+          <p class="small" style="margin-top:6px;font-size:var(--s2)">Quem instala pelo seu link ganha 30 dias de Pro. Depois de 3 dias de uso, você também ganha 30 dias.</p>
+        </div>
+        <span class="code" aria-label="Exemplo de código de convite">JAK7Q2</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow">Perguntas</p>
+      <h2 style="margin-top:10px">Antes de instalar</h2>
+      <div class="faq">
+        <details><summary>Preciso liberar as notificações logo de cara?</summary><p>Não. No modo só dicas o GoGreen funciona sem acesso às notificações e só manda dicas. Quando você confiar, liga a leitura automática. Dá para desligar a qualquer momento.</p></details>
+        <details><summary>Preciso dar a senha do banco?</summary><p>Não. O GoGreen só lê as notificações que os apps do banco já mostram no seu celular. Ele nunca entra na sua conta.</p></details>
+        <details><summary>Quais bancos funcionam?</summary><p>Qualquer app de banco, cartão ou vale que avise compras por notificação. Na primeira notificação de cada app, você escolhe se quer que o GoGreen acompanhe.</p></details>
+        <details><summary>Tem para iPhone?</summary><p>Ainda não. O lançamento é no Android. O iPhone não permite que apps leiam notificações de outros apps, então lá o GoGreen vai funcionar de outro jeito, mais para frente.</p></details>
+        <details><summary>E se eu trocar de celular?</summary><p>Exporte o CSV antes. A assinatura e o vitalício voltam sozinhos na mesma conta Google.</p></details>
+        <details><summary>Ele gasta bateria?</summary><p>Pouco. Ele só acorda quando chega uma notificação de um app que você escolheu. Para a captura não parar, deixe o GoGreen sem restrição de bateria.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacidade" style="padding-top:0">
+    <div class="wrap policy">
+      <p class="eyebrow">Política de privacidade</p>
+      <h2 style="margin-top:10px">Política de privacidade do GoGreen</h2>
+      <p class="small">Última atualização: 5 de novembro de 2026</p>
+      <h3>O que o app lê</h3>
+      <p>Com a sua permissão de acesso às notificações, o GoGreen lê as notificações dos apps de banco, cartão e vale que você escolher, para extrair valor, data, estabelecimento e forma de pagamento. Notificações de outros apps são ignoradas.</p>
+      <h3>Onde os dados ficam</h3>
+      <p>Lançamentos, categorias, tetos, apelido, nomes da família e progresso do jogo ficam num arquivo no armazenamento interno do app, no seu aparelho. O backup automático na nuvem do Android fica desligado. Nenhum desses dados é enviado ao desenvolvedor ou a terceiros.</p>
+      <h3>O que usa internet</h3>
+      <ul>
+        <li>Google Play Billing, para comprar e verificar a assinatura Pro e os presentes. A Google trata esses pagamentos segundo a política dela.</li>
+        <li>Google Play Install Referrer, para ler o código de convite de quem indicou você.</li>
+      </ul>
+      <p>O app não usa anúncios, análise de uso nem rastreamento.</p>
+      <h3>Compartilhamento</h3>
+      <p>Só sai do aparelho o que você escolher compartilhar: o arquivo CSV que você exporta e os cartões de conquista, que não mostram valores em reais.</p>
+      <h3>Seus direitos (LGPD)</h3>
+      <p>Como os dados ficam só no seu celular, você tem controle total: apague um lançamento no app ou desinstale o GoGreen para apagar tudo. Dúvidas? Fale com a gente pelo direct do @gogreen.fin<span class="so-email" hidden> ou pelo e-mail <a class="email" href="#"></a></span>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>GoGreen · feito no Brasil para sair do vermelho</span>
+    <span><a href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener">@gogreen.fin</a><span class="so-email" hidden> · <a class="email" href="#"></a></span> · <a href="#privacidade">Privacidade</a></span>
+  </div>
+</footer>
+<script>
+/* Preencha quando tiver. Vazio = não aparece. */
+const CONTATO_EMAIL = "gogreen.financas@gmail.com";
+const LINK_PLAY = "";
+(function(){
+  if (CONTATO_EMAIL) document.querySelectorAll('.so-email').forEach(s=>{s.hidden=false;s.querySelectorAll('a.email').forEach(a=>{a.href='mailto:'+CONTATO_EMAIL;a.textContent=CONTATO_EMAIL;});});
+  if (LINK_PLAY) { const b=document.getElementById('cta-principal'); b.href=LINK_PLAY; b.textContent='Baixar na Google Play';
+    const n=document.getElementById('cta-nota'); if(n) n.textContent='Grátis, sem anúncios. Android 10 ou superior.'; }
+})();
+</script>
+
+</body></html>
