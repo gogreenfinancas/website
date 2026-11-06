@@ -1,5 +1,5 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>GoGreen: app para controlar gastos e sair do vermelho</title>
+<title>GoGreen: app para controlar gastos e&nbsp;sair do&nbsp;vermelho</title>
 <meta name="description" content="App Android que lê a notificação do banco, anota seus gastos e avisa antes de estourar o teto. Sem anúncios, sem login e funciona sem internet.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#123B1C">
@@ -33,7 +33,8 @@
    "logo": "https://gogreen.app.br/img/icone-192.png",
    "email": "gogreen.financas@gmail.com",
    "sameAs": [
-    "https://instagram.com/gogreen.fin"
+    "https://instagram.com/gogreen.fin",
+    "https://www.youtube.com/@Gogreen-fin"
    ]
   },
   {
@@ -347,6 +348,14 @@ th,td{padding:9px 14px}
 @media (max-width:700px){.verdi-grid{grid-template-columns:1fr}.verdi-grid img{max-width:200px;margin:0 auto}}
 
 @media (prefers-reduced-motion: reduce){.meter i{animation:none}}
+.vermelho{color:var(--red)}
+.price .nome{font-family:var(--f-display);font-weight:800;font-size:1.45rem;line-height:1.1;color:var(--leaf)}
+.price .tag{justify-self:start;font-size:.7rem;font-weight:700;padding:2px 9px;border-radius:999px;background:color-mix(in srgb,var(--sprout) 22%,transparent);color:var(--leaf)}
+.cupom{display:grid;gap:6px;justify-items:center;max-width:240px;text-align:center}
+.cupom .small{font-size:.7rem;line-height:1.35}
+p,li,td,th,summary,.small,.lead{text-wrap:pretty}
+.price{align-content:start}
+@media (max-width:560px){table{min-width:0;font-size:.82rem}th,td{padding:9px 8px}th:first-child,td:first-child{padding-left:12px}}
 </style>
 </head><body style="margin:0">
 
@@ -367,36 +376,36 @@ th,td{padding:9px 14px}
 <main id="inicio">
   <div class="wrap hero">
     <div>
-      <p class="eyebrow">App de controle de gastos · Android</p>
-      <h1 style="margin-top:14px">Saia do <span class="red">vermelho</span> e fique no <span class="green">verde</span> sem anotar nada.</h1>
-      <p class="lead">O GoGreen lê a notificação do seu banco, anota o gasto na categoria certa e avisa antes de você estourar o teto do mês. Tudo fica no seu celular.</p>
+      <p class="eyebrow">App de&nbsp;controle de&nbsp;gastos · Android</p>
+      <h1 style="margin-top:14px">Saia do <span class="red">vermelho</span> e&nbsp;fique no <span class="green">verde</span> sem anotar nada.</h1>
+      <p class="lead">O&nbsp;GoGreen lê&nbsp;a&nbsp;notificação do&nbsp;seu banco, anota o&nbsp;gasto na&nbsp;categoria certa e&nbsp;avisa antes de&nbsp;você estourar o&nbsp;teto do&nbsp;mês. Tudo fica no&nbsp;seu celular.</p>
       <div class="ctas">
-        <a class="btn btn-main" id="cta-principal" href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener">Entrar na lista de espera</a>
+        <a class="btn btn-main" id="cta-principal" href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener">Entrar na&nbsp;lista de&nbsp;espera</a>
         <a class="btn btn-ghost" href="#como-funciona">Ver como funciona</a>
       </div>
-      <div class="ctas" style="margin-top:14px"><span class="play-pill " data-play><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5v17l9.2-8.5z" fill="#9AD861"/><path d="M4 3.5l12.6 7.2-3.4 1.8z" fill="#E8F3E3"/><path d="M4 20.5l12.6-7.2-3.4-1.8z" fill="#F0BF4C"/><path d="M16.6 10.7l3.4 1.3-3.4 1.3-3.4-1.3z" fill="#F0695D"/></svg><span><small>Em breve na</small>Google Play</span></span></div>
-      <p class="small" id="cta-nota" style="margin-top:12px">Comece só com as dicas, sem liberar nada. Quando confiar, ele anota sozinho.</p>
-      <div class="tags"><span>Funciona sem internet</span><span>Sem senha do banco</span><span>Sem anúncios</span><span>Comece só com as dicas</span><span>Android 10 ou superior</span></div>
+      <div class="ctas" style="margin-top:14px"><span class="play-pill " data-play><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5v17l9.2-8.5z" fill="#9AD861"/><path d="M4 3.5l12.6 7.2-3.4 1.8z" fill="#E8F3E3"/><path d="M4 20.5l12.6-7.2-3.4-1.8z" fill="#F0BF4C"/><path d="M16.6 10.7l3.4 1.3-3.4 1.3-3.4-1.3z" fill="#F0695D"/></svg><span><small>Em&nbsp;breve na</small>Google Play</span></span></div>
+      <p class="small" id="cta-nota" style="margin-top:12px">Comece só&nbsp;com as&nbsp;dicas, sem liberar nada. Quando confiar, ele anota sozinho.</p>
+      <div class="tags"><span>Funciona sem internet</span><span>Sem senha do&nbsp;banco</span><span>Sem anúncios</span><span>Comece só&nbsp;com as&nbsp;dicas</span><span>Android 10 ou&nbsp;superior</span></div>
     </div>
 
     <div class="phone" role="img" aria-label="Exemplo: a notificação de uma compra de R$ 42,90 vira um lançamento em Alimentação fora, com 68% do teto usado">
       <div class="bar"><span>12:41</span><span>●●● 5G</span></div>
-      <div class="notif"><b>App do banco · agora</b>Compra aprovada no cartão final 1234: R$ 42,90 em IFOOD *RESTAURANTE</div>
+      <div class="notif"><b>App do&nbsp;banco · agora</b>Compra aprovada no&nbsp;cartão final 1234: R$&nbsp;42,90 em&nbsp;IFOOD *RESTAURANTE</div>
       <div class="arrow">▼ GoGreen anotou</div>
       <div class="entry">
-        <div class="row"><strong>iFood</strong><span class="val">R$ 42,90</span></div>
-        <div class="row"><span class="chip">Alimentação fora</span><span class="small">Cartão de crédito</span></div>
+        <div class="row"><strong>iFood</strong><span class="val">R$&nbsp;42,90</span></div>
+        <div class="row"><span class="chip">Alimentação fora</span><span class="small">Cartão de&nbsp;crédito</span></div>
         <div class="meter"><i></i></div>
-        <div class="row"><span class="small">68% do teto do mês</span><span class="small" style="color:var(--leaf);font-weight:600">OK</span></div>
+        <div class="row"><span class="small">68% do&nbsp;teto do&nbsp;mês</span><span class="small" style="color:var(--leaf);font-weight:600">OK</span></div>
       </div>
-      <div class="toast">🔥 <span><em>12 dias no verde</em> · Nível 4</span></div>
+      <div class="toast">🔥 <span><em>12 dias no&nbsp;verde</em> · Nível 4</span></div>
     </div>
   </div>
 
   <section id="o-que-e">
     <div class="wrap">
-      <p class="eyebrow">Em 6 cartões</p>
-      <h2 style="margin-top:10px">O que o GoGreen é</h2>
+      <p class="eyebrow">Em&nbsp;6&nbsp;cartões</p>
+      <h2 style="margin-top:10px">O&nbsp;que o&nbsp;GoGreen é</h2>
       <div class="car" data-car>
         <button type="button" class="car-btn prev" aria-label="Cartão anterior">‹</button>
         <ul class="car-track" tabindex="0" aria-label="O que o GoGreen é: arraste para o lado para ver os cartões">
@@ -416,17 +425,17 @@ th,td{padding:9px 14px}
   <section id="como-funciona">
     <div class="wrap">
       <p class="eyebrow">Como funciona</p>
-      <h2 style="margin-top:10px">Você gasta. O GoGreen anota.</h2>
+      <h2 style="margin-top:10px">Você gasta. O&nbsp;GoGreen anota.</h2>
       <div class="steps">
-        <div class="step"><h3>A notificação chega</h3><p>Você paga com o cartão, PIX ou vale-refeição e o app do banco avisa no celular, como sempre.</p></div>
-        <div class="step"><h3>O GoGreen lê e classifica</h3><p>Pega o valor, o estabelecimento e a forma de pagamento e sugere a categoria. Mostra na hora quanto do teto já foi.</p></div>
-        <div class="step"><h3>Você confirma</h3><p>Um toque na Entrada. Se corrigir a categoria uma vez, ele aprende e acerta das próximas.</p></div>
+        <div class="step"><h3>A&nbsp;notificação chega</h3><p>Você paga com o&nbsp;cartão, PIX ou&nbsp;vale-refeição e&nbsp;o&nbsp;app do&nbsp;banco avisa no&nbsp;celular, como sempre.</p></div>
+        <div class="step"><h3>O&nbsp;GoGreen lê&nbsp;e&nbsp;classifica</h3><p>Pega o&nbsp;valor, o&nbsp;estabelecimento e&nbsp;a&nbsp;forma de&nbsp;pagamento e&nbsp;sugere a&nbsp;categoria. Mostra na&nbsp;hora quanto do&nbsp;teto já&nbsp;foi.</p></div>
+        <div class="step"><h3>Você confirma</h3><p>Um&nbsp;toque na&nbsp;Entrada. Se&nbsp;corrigir a&nbsp;categoria uma vez, ele aprende e&nbsp;acerta das próximas.</p></div>
       </div>
-      <p class="lead" style="margin-top:36px">Dinheiro vivo ou boleto? Use o botão + para lançar à mão. E no fim do mês exporte tudo em CSV para a sua planilha.</p>
+      <p class="lead" style="margin-top:36px">Dinheiro vivo ou&nbsp;boleto? Use o&nbsp;botão + para lançar à&nbsp;mão. E&nbsp;no&nbsp;fim do&nbsp;mês exporte tudo em&nbsp;CSV para a&nbsp;sua planilha.</p>
       <div class="teto">
         <div class="scale" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="scale-legend"><span>OK · até 90%</span><span>Atenção</span><span>Estourou</span></div>
-        <p>No passo 2, cada categoria aparece com a cor do seu <strong>teto mensal</strong>: verde até 90%, amarela até 100% e vermelha acima disso. Contas fixas, como o aluguel, ficam verdes até 100%.</p>
+        <div class="scale-legend"><span>OK&nbsp;· até 90%</span><span>Atenção</span><span>Estourou</span></div>
+        <p>No&nbsp;passo 2, cada categoria aparece com a&nbsp;cor do&nbsp;seu <strong>teto mensal</strong>: verde até 90%, amarela até 100% e&nbsp;vermelha acima disso. Contas fixas, como o&nbsp;aluguel, ficam verdes até 100%.</p>
       </div>
     </div>
   </section>
@@ -434,23 +443,23 @@ th,td{padding:9px 14px}
   <section id="sem-pegadinha" class="deep">
     <div class="wrap">
       <p class="eyebrow">Sem pegadinha</p>
-      <h2 style="margin-top:10px">Comece só com as dicas. Libere as notificações quando confiar.</h2>
-      <p class="lead" style="margin-top:16px">Ler as notificações do seu banco é pedir muita confiança. Por isso o GoGreen não exige nada no primeiro dia: no modo só dicas, ele funciona sem acesso às notificações. Nesse modo, o GoGreen é seu companheiro do dia a dia: dá dicas, aplica "vacinas" contra compras por impulso e golpes na internet, e muito mais. Você conhece o app no seu tempo e liga a leitura automática só quando quiser.</p>
+      <h2 style="margin-top:10px">Comece só&nbsp;com as&nbsp;dicas. Libere as&nbsp;notificações quando confiar.</h2>
+      <p class="lead" style="margin-top:16px">Ler as&nbsp;notificações do&nbsp;seu banco é&nbsp;pedir muita confiança. Por isso o&nbsp;GoGreen não exige nada no&nbsp;primeiro dia: no&nbsp;modo só&nbsp;dicas, ele funciona sem acesso às&nbsp;notificações. Nesse modo, o&nbsp;GoGreen é&nbsp;seu companheiro do&nbsp;dia a&nbsp;dia: dá&nbsp;dicas, aplica "vacinas" contra compras por impulso e&nbsp;golpes na&nbsp;internet, e&nbsp;muito mais. Você conhece o&nbsp;app no&nbsp;seu tempo e&nbsp;liga a&nbsp;leitura automática só&nbsp;quando quiser.</p>
       <div class="steps">
-        <div class="step"><h3>Só dicas</h3><p>Instale e use sem dar permissão nenhuma. Todo dia você recebe uma dica e uma "vacina" contra os gatilhos de compra.</p></div>
-        <div class="step"><h3>Confira você mesmo</h3><p>Ligue o modo avião e veja: tudo funciona igual. Não tem login, não tem servidor, não tem para onde os dados irem.</p></div>
-        <div class="step"><h3>Libere quando quiser</h3><p>Confiou? Ligue a leitura das notificações e o GoGreen passa a anotar sozinho. Mudou de ideia? Desligue, e ele volta a ser só dicas.</p></div>
+        <div class="step"><h3>Só&nbsp;dicas</h3><p>Instale e&nbsp;use sem dar permissão nenhuma. Todo dia você recebe uma dica e&nbsp;uma "vacina" contra os&nbsp;gatilhos de&nbsp;compra.</p></div>
+        <div class="step"><h3>Confira você mesmo</h3><p>Ligue o&nbsp;modo avião e&nbsp;veja: tudo funciona igual. Não tem login, não tem servidor, não tem para onde os&nbsp;dados irem.</p></div>
+        <div class="step"><h3>Libere quando quiser</h3><p>Confiou? Ligue a&nbsp;leitura das notificações e&nbsp;o&nbsp;GoGreen passa a&nbsp;anotar sozinho. Mudou de&nbsp;ideia? Desligue, e&nbsp;ele volta a&nbsp;ser só&nbsp;dicas.</p></div>
       </div>
       <div class="priv priv4">
-        <div><h3>Sem internet</h3><p>O app funciona offline. A única conexão é a da Google Play, para a assinatura Pro.</p></div>
-        <div><h3>Sem senha do banco</h3><p>Nada de Open Finance nem acesso à conta. Você escolhe quais apps ele acompanha.</p></div>
-        <div><h3>Sem anúncios</h3><p>Nem na versão gratuita. Ninguém compra os seus dados porque eles não vão para lugar nenhum.</p></div>
-        <div><h3>Backup na sua mão</h3><p>Os dados ficam num arquivo interno do app. Para guardar uma cópia, exporte o CSV.</p></div>
+        <div><h3>Sem internet</h3><p>O&nbsp;app funciona offline. A&nbsp;única conexão é&nbsp;a&nbsp;da&nbsp;Google Play, para a&nbsp;assinatura Pro.</p></div>
+        <div><h3>Sem senha do&nbsp;banco</h3><p>Nada de&nbsp;Open Finance nem acesso à&nbsp;conta. Você escolhe quais apps ele acompanha.</p></div>
+        <div><h3>Sem anúncios</h3><p>Nem na&nbsp;versão gratuita. Ninguém compra os&nbsp;seus dados porque eles não vão para lugar nenhum.</p></div>
+        <div><h3>Backup na&nbsp;sua mão</h3><p>Os&nbsp;dados ficam num arquivo interno do&nbsp;app. Para guardar uma cópia, exporte o&nbsp;CSV.</p></div>
       </div>
       <div class="porque">
         <div>
-          <h3>Por que a gente repete tanto "sem pegadinha"?</h3>
-          <p>Porque app de finanças grátis costuma esconder alguma coisa: anúncio, venda de dados, empréstimo empurrado. Você tem razão em desconfiar. Então a gente repete, em todo lugar, o que o GoGreen não faz, e deixa você conferir no seu celular. Sem anúncio, sem senha do banco, sem login, sem internet.</p>
+          <h3>Por que a&nbsp;gente repete tanto "sem pegadinha"?</h3>
+          <p>Porque app de&nbsp;finanças grátis costuma esconder alguma coisa: anúncio, venda de&nbsp;dados, empréstimo empurrado. Você tem razão em&nbsp;desconfiar. Então a&nbsp;gente repete, em&nbsp;todo lugar, o&nbsp;que o&nbsp;GoGreen não faz, e&nbsp;deixa você conferir no&nbsp;seu celular. Sem anúncio, sem senha do&nbsp;banco, sem login, sem internet.</p>
         </div>
       </div>
     </div>
@@ -458,23 +467,23 @@ th,td{padding:9px 14px}
 
   <section id="vacinas" class="vac">
     <div class="wrap">
-      <p class="eyebrow">Vacinas contra o impulso</p>
-      <h2 style="margin-top:10px">Ninguém cai porque é bobo. Cai porque o truque foi feito para funcionar.</h2>
-      <p class="lead" style="margin-top:16px">Promoção relâmpago, prêmio surpresa, oferta "só para você": por trás dessas mensagens existem técnicas estudadas para te fazer agir antes de pensar. As mesmas técnicas vendem o que você não precisa e abrem a porta para golpes. As vacinas do GoGreen mostram, em doses curtas, como esses truques funcionam.</p>
+      <p class="eyebrow">Vacinas contra o&nbsp;impulso</p>
+      <h2 style="margin-top:10px">Ninguém cai porque é&nbsp;bobo. Cai porque o&nbsp;truque foi feito para funcionar.</h2>
+      <p class="lead" style="margin-top:16px">Promoção relâmpago, prêmio surpresa, oferta "só&nbsp;para você": por trás dessas mensagens existem técnicas estudadas para te&nbsp;fazer agir antes de&nbsp;pensar. As&nbsp;mesmas técnicas vendem o&nbsp;que você não precisa e&nbsp;abrem a&nbsp;porta para golpes. As&nbsp;vacinas do&nbsp;GoGreen mostram, em&nbsp;doses curtas, como esses truques funcionam.</p>
       <ul>
-        <li><strong>"Você foi escolhido!"</strong>Faz você se sentir especial para baixar a guarda.</li>
-        <li><strong>"Últimas unidades" e "só hoje"</strong>Criam pressa para você não comparar.</li>
-        <li><strong>"Ganhe R$ 500 por dia em casa"</strong>Promete o fácil para você ignorar o risco.</li>
-        <li><strong>"Promoção imperdível"</strong>Traz um desconto que esconde o preço de verdade.</li>
+        <li><strong>"Você foi escolhido!"</strong>Faz você se&nbsp;sentir especial para baixar a&nbsp;guarda.</li>
+        <li><strong>"Últimas unidades" e&nbsp;"só&nbsp;hoje"</strong>Criam pressa para você não comparar.</li>
+        <li><strong>"Ganhe R$&nbsp;500 por dia em&nbsp;casa"</strong>Promete o&nbsp;fácil para você ignorar o&nbsp;risco.</li>
+        <li><strong>"Promoção imperdível"</strong>Traz um&nbsp;desconto que esconde o&nbsp;preço de&nbsp;verdade.</li>
       </ul>
-      <p class="lead" style="margin-top:24px">Quem conhece o truque reconhece na hora, respira e decide com calma. O GoGreen não bloqueia nada nem lê suas conversas: ele treina o seu olhar, um dia de cada vez.</p>
+      <p class="lead" style="margin-top:24px">Quem conhece o&nbsp;truque reconhece na&nbsp;hora, respira e&nbsp;decide com calma. O&nbsp;GoGreen não bloqueia nada nem lê&nbsp;suas conversas: ele treina o&nbsp;seu olhar, um&nbsp;dia de&nbsp;cada vez.</p>
     </div>
   </section>
 
   <section id="o-que-nao-e" style="padding-top:0">
     <div class="wrap">
-      <p class="eyebrow">Em 6 cartões</p>
-      <h2 style="margin-top:10px">O que o GoGreen não é</h2>
+      <p class="eyebrow">Em&nbsp;6&nbsp;cartões</p>
+      <h2 style="margin-top:10px">O&nbsp;que o&nbsp;GoGreen não é</h2>
       <div class="car" data-car>
         <button type="button" class="car-btn prev" aria-label="Cartão anterior">‹</button>
         <ul class="car-track" tabindex="0" aria-label="O que o GoGreen não é: arraste para o lado para ver os cartões">
@@ -495,30 +504,30 @@ th,td{padding:9px 14px}
     <div class="wrap verdi-grid">
       <img src="img/verdi.svg" width="300" height="420" loading="lazy" alt="Verdi, o embaixador do GoGreen: um personagem sorridente de camiseta verde, com um broto na cabeça e o celular na mão, acenando">
       <div>
-        <p class="eyebrow">A história do Verdi</p>
-        <h2 style="margin-top:10px">Eu já estive no vermelho.</h2>
-        <p class="lead" style="margin-top:16px">Oi, eu sou o Verdi, o embaixador do GoGreen. Sou o alter ego de quem criou o app. Todo mês eu prometia anotar os gastos e desistia no dia 5. Saí do vermelho aos poucos, um mês verde de cada vez, e o GoGreen é o app que eu queria ter tido naquela época.</p>
-        <p class="lead" style="margin-top:16px">Mas eu também sou um pouco você. Sou o espelho de quem abre o app do banco com medo do saldo, de quem já fechou o mês no aperto e de quem quer virar o jogo. Por isso eu falo com você de igual para igual, sem julgar.</p>
-        <p class="lead" style="margin-top:16px">Eu quero ajudar você a sair do vermelho. E quero a sua ajuda para tirar outras pessoas de lá. Você vai me encontrar sempre no Instagram <a href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener" style="color:var(--sprout)">@gogreen.fin</a> e no YouTube, com dicas, desafios e respondendo quem passa por lá. Se o GoGreen está ajudando você, passe adiante: indique para um amigo ou me conte a sua história no direct. Quem sai do vermelho sabe o caminho melhor do que ninguém.</p>
+        <p class="eyebrow">A&nbsp;história do&nbsp;Verdi</p>
+        <h2 style="margin-top:10px">Eu&nbsp;já&nbsp;estive no&nbsp;vermelho.</h2>
+        <p class="lead" style="margin-top:16px">Oi, eu&nbsp;sou o&nbsp;Verdi, o&nbsp;embaixador do&nbsp;GoGreen. Sou o&nbsp;alter ego de&nbsp;quem criou o&nbsp;app. Todo mês eu&nbsp;prometia anotar os&nbsp;gastos e&nbsp;desistia no&nbsp;dia 5. Saí do&nbsp;vermelho aos poucos, um&nbsp;mês verde de&nbsp;cada vez, e&nbsp;o&nbsp;GoGreen é&nbsp;o&nbsp;app que eu&nbsp;queria ter tido naquela época.</p>
+        <p class="lead" style="margin-top:16px">Mas eu&nbsp;também sou um&nbsp;pouco você. Sou o&nbsp;espelho de&nbsp;quem abre o&nbsp;app do&nbsp;banco com medo do&nbsp;saldo, de&nbsp;quem já&nbsp;fechou o&nbsp;mês no&nbsp;aperto e&nbsp;de&nbsp;quem quer virar o&nbsp;jogo. Por isso eu&nbsp;falo com você de&nbsp;igual para igual, sem julgar.</p>
+        <p class="lead" style="margin-top:16px">Eu&nbsp;quero ajudar você a&nbsp;sair do&nbsp;vermelho. E&nbsp;quero a&nbsp;sua ajuda para tirar outras pessoas de&nbsp;lá. Você vai me&nbsp;encontrar sempre no&nbsp;Instagram <a href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener" style="color:var(--sprout)">@gogreen.fin</a> e&nbsp;no <a href="https://www.youtube.com/@Gogreen-fin" target="_blank" rel="noopener" style="color:var(--sprout)">YouTube</a>, com dicas, desafios e&nbsp;respondendo quem passa por lá. Se&nbsp;o&nbsp;GoGreen está ajudando você, passe adiante: indique para um&nbsp;amigo ou&nbsp;me&nbsp;conte a&nbsp;sua história no&nbsp;direct. Quem sai do&nbsp;vermelho sabe o&nbsp;caminho melhor do&nbsp;que ninguém.</p>
       </div>
     </div>
   </section>
 
   <section>
     <div class="wrap">
-      <p class="eyebrow">Para não desistir no meio do caminho</p>
-      <h2 style="margin-top:10px">Sair do vermelho vira jogo.</h2>
+      <p class="eyebrow">Para não desistir no&nbsp;meio do&nbsp;caminho</p>
+      <h2 style="margin-top:10px">Sair do&nbsp;vermelho vira jogo.</h2>
       <div class="game">
         <div class="levels" aria-label="Desafio da semana em três níveis">
           <div class="lv"><span class="ic">🌱</span><div><h3>Broto</h3><p>Metas leves para começar.</p></div><span class="xp">🍃 30 GP</span></div>
-          <div class="lv"><span class="ic">🌳</span><div><h3>Árvore</h3><p>Aperta um pouco mais.</p></div><span class="xp">🍃 60 GP</span></div>
-          <div class="lv"><span class="ic">🌲</span><div><h3>Floresta</h3><p>Ex.: nenhum gasto variável acima de R$ 50.</p></div><span class="xp">🍃 120 GP</span></div>
+          <div class="lv"><span class="ic">🌳</span><div><h3>Árvore</h3><p>Aperta um&nbsp;pouco mais.</p></div><span class="xp">🍃 60 GP</span></div>
+          <div class="lv"><span class="ic">🌲</span><div><h3>Floresta</h3><p>Ex.: nenhum gasto variável acima de&nbsp;R$&nbsp;50.</p></div><span class="xp">🍃 120 GP</span></div>
         </div>
         <div class="feat">
-          <div><h3>Dias seguidos no verde</h3><p>Sua sequência cresce enquanto nenhuma categoria passa do teto.</p></div>
-          <div><h3>Termômetro e cofrinho</h3><p>Veja quanto já sobrou no mês e lembre de aplicar a sobra na poupança, na caixinha ou no Tesouro.</p></div>
-          <div><h3>Roleta e medalhas</h3><p>Mês fechado no verde dá giro na roleta, com prêmios como dias de Pro. São 18 medalhas para colecionar.</p></div>
-          <div><h3>Cartões para os stories</h3><p>Compartilhe conquistas com percentuais e níveis, nunca valores em reais.</p></div>
+          <div><h3>Dias seguidos no&nbsp;verde</h3><p>Sua sequência cresce enquanto nenhuma categoria passa do&nbsp;teto.</p></div>
+          <div><h3>Termômetro e&nbsp;cofrinho</h3><p>Veja quanto já&nbsp;sobrou no&nbsp;mês e&nbsp;lembre de&nbsp;aplicar a&nbsp;sobra na&nbsp;poupança, na&nbsp;caixinha ou&nbsp;no&nbsp;Tesouro.</p></div>
+          <div><h3>Roleta e&nbsp;medalhas</h3><p>Mês fechado no&nbsp;verde dá&nbsp;giro na&nbsp;roleta, com prêmios como dias de&nbsp;Pro. São 18 medalhas para colecionar.</p></div>
+          <div><h3>Cartões para os&nbsp;stories</h3><p>Compartilhe conquistas com percentuais e&nbsp;níveis, nunca valores em&nbsp;reais.</p></div>
         </div>
       </div>
     </div>
@@ -527,35 +536,35 @@ th,td{padding:9px 14px}
   <section id="planos" style="padding-top:0">
     <div class="wrap">
       <p class="eyebrow">Planos</p>
-      <h2 style="margin-top:10px">O gratuito já basta para sair do vermelho.</h2>
-      <p class="lead" style="margin-top:16px">Tetos, todos os avisos, resumo, termômetro, desafios e medalhas são livres. O Pro é para quem quer mais bancos e mais histórico.</p>
+      <h2 style="margin-top:10px">O&nbsp;plano gratuito já&nbsp;basta para ajudar você a&nbsp;sair do <span class="vermelho">vermelho</span>.</h2>
+      <p class="lead" style="margin-top:16px">Tetos, todos os&nbsp;avisos, resumo, termômetro, desafios e&nbsp;medalhas são livres. O&nbsp;Pro é&nbsp;para quem quer mais bancos e&nbsp;mais histórico.</p>
       <div class="plans">
         <table>
           <thead><tr><th>Recurso</th><th>Gratuito</th><th>Pro</th></tr></thead>
           <tbody>
-            <tr><td>Modo só dicas e vacinas contra golpes</td><td>Completo</td><td>Completo</td></tr>
-            <tr><td>Bancos, cartões e VA/VR capturados</td><td>2</td><td>Ilimitados</td></tr>
-            <tr><td>Tetos, avisos, resumo e jogo</td><td>Completo</td><td>Completo</td></tr>
-            <tr><td>Histórico no resumo</td><td>Últimos 3 meses</td><td>Completo</td></tr>
-            <tr><td>Exportar CSV</td><td>Últimos 3 meses</td><td>Qualquer período</td></tr>
+            <tr><td>Modo só&nbsp;dicas e&nbsp;vacinas contra golpes</td><td>Completo</td><td>Completo</td></tr>
+            <tr><td>Bancos, cartões e&nbsp;VA/VR&nbsp;capturados</td><td>2</td><td>Ilimitados</td></tr>
+            <tr><td>Tetos, avisos, resumo e&nbsp;jogo</td><td>Completo</td><td>Completo</td></tr>
+            <tr><td>Histórico no&nbsp;resumo</td><td>Últimos 3&nbsp;meses</td><td>Completo</td></tr>
+            <tr><td>Exportar CSV</td><td>Últimos 3&nbsp;meses</td><td>Qualquer período</td></tr>
             <tr><td>Categorias novas</td><td>Até 5</td><td>Ilimitadas</td></tr>
             <tr><td>Família com nomes</td><td>Sem nomes</td><td>Com nomes</td></tr>
-            <tr><td>Retrospectiva do mês</td><td>Simples</td><td>Completa</td></tr>
+            <tr><td>Retrospectiva do&nbsp;mês</td><td>Simples</td><td>Completa</td></tr>
           </tbody>
         </table>
       </div>
       <div class="prices">
-        <div class="price"><span class="small">Pro Mensal</span><span class="v">R$ 6,99</span><p>por mês, cancele quando quiser. Nos 3 primeiros meses sai R$ 1,99.</p></div>
-        <div class="price best"><span class="small">Pro Anual · melhor custo</span><span class="v">R$ 49,90</span><p>por ano, sai R$ 4,16 por mês</p></div>
-        <div class="price"><span class="small">Guardião Vitalício</span><span class="v">Prêmio</span><p>não está à venda: quem fica 6 meses seguidos no verde e completa os desafios ganha o Pro para sempre.</p></div>
+        <div class="price"><span class="nome">Pro Mensal</span><span class="v">R$&nbsp;6,99</span><p>por mês, cancele quando quiser. Nos 3&nbsp;primeiros meses sai R$&nbsp;1,99.</p></div>
+        <div class="price best"><span class="nome">Pro Anual</span><span class="tag">melhor custo</span><span class="v">R$&nbsp;49,90</span><p>por ano, sai R$&nbsp;4,16 por mês</p></div>
+        <div class="price"><span class="nome">Vitalício</span><span class="v">Prêmio</span><p>não está à&nbsp;venda. Assine o&nbsp;Pro (mensal ou&nbsp;anual) por pelo menos 6&nbsp;meses, fique 6&nbsp;meses seguidos no&nbsp;verde enquanto assina e&nbsp;complete os&nbsp;desafios do&nbsp;Guardião: você ganha o&nbsp;Guardião Vitalício GoGreen, com uso para sempre e&nbsp;todas as&nbsp;atualizações publicadas.</p></div>
       </div>
-      <p class="small" style="margin-top:14px">Cobrança pela Google Play. Se a assinatura acabar, nada é apagado: o app volta aos limites do gratuito.</p>
+      <p class="small" style="margin-top:14px">Cobrança pela Google Play. Se&nbsp;a&nbsp;assinatura acabar, nada é&nbsp;apagado: o&nbsp;app volta aos limites do&nbsp;gratuito.</p>
       <div class="invite" style="margin-top:20px">
         <div>
-          <h3>Indique um amigo e os dois ganham Pro</h3>
-          <p class="small" style="margin-top:6px;font-size:var(--s2)">Quem instala pelo seu link ganha 30 dias de Pro. Depois de 3 dias de uso, você também ganha 30 dias.</p>
+          <h3>Indique um&nbsp;amigo e&nbsp;os&nbsp;dois ganham Pro</h3>
+          <p class="small" style="margin-top:6px;font-size:var(--s2)">Quem instala pelo seu link ganha 30 dias de&nbsp;Pro. Depois de&nbsp;3&nbsp;dias de&nbsp;uso, você também ganha 30 dias.</p>
         </div>
-        <span class="code" aria-label="Exemplo de código de convite">VERDI7</span>
+        <div class="cupom"><span class="code" aria-label="Exemplo de código de convite">VERDI7</span><p class="small">Código meramente ilustrativo, sem validade. O&nbsp;seu código de&nbsp;convite verdadeiro é&nbsp;gerado no&nbsp;app, quando você atende aos critérios de&nbsp;elegibilidade.</p></div>
       </div>
     </div>
   </section>
@@ -563,52 +572,52 @@ th,td{padding:9px 14px}
   <section style="padding-top:0">
     <div class="wrap">
       <p class="eyebrow">Perguntas</p>
-      <h2 style="margin-top:10px">Antes de instalar</h2>
+      <h2 style="margin-top:10px">Antes de&nbsp;instalar</h2>
       <div class="faq">
-        <details><summary>Preciso liberar as notificações logo de cara?</summary><p>Não. No modo só dicas o GoGreen funciona sem acesso às notificações e só manda dicas. Quando você confiar, liga a leitura automática. Dá para desligar a qualquer momento.</p></details>
-        <details><summary>O GoGreen me protege de golpes?</summary><p>Ele te ensina a reconhecer os truques antes de cair neles. As vacinas contra o impulso mostram, em doses curtas, como funcionam o "você foi escolhido", o "últimas unidades" e as outras iscas. Ele não bloqueia nada nem lê suas conversas. <a href="#vacinas">Veja as vacinas</a>.</p></details>
-        <details><summary>Preciso dar a senha do banco?</summary><p>Não. O GoGreen só lê as notificações que os apps do banco já mostram no seu celular. Ele nunca entra na sua conta.</p></details>
-        <details><summary>Quais bancos funcionam?</summary><p>Qualquer app de banco, cartão ou vale que avise compras por notificação. Na primeira notificação de cada app, você escolhe se quer que o GoGreen acompanhe.</p></details>
-        <details><summary>Tem para iPhone?</summary><p>Ainda não. O lançamento é no Android. O iPhone não permite que apps leiam notificações de outros apps, então lá o GoGreen vai funcionar de outro jeito, mais para frente.</p></details>
-        <details><summary>E se eu trocar de celular?</summary><p>Exporte o CSV antes. A assinatura e o vitalício voltam sozinhos na mesma conta Google.</p></details>
-        <details><summary>Ele gasta bateria?</summary><p>Pouco. Ele só acorda quando chega uma notificação de um app que você escolheu. Para a captura não parar, deixe o GoGreen sem restrição de bateria.</p></details>
+        <details><summary>Preciso liberar as&nbsp;notificações logo de&nbsp;cara?</summary><p>Não. No&nbsp;modo só&nbsp;dicas o&nbsp;GoGreen funciona sem acesso às&nbsp;notificações e&nbsp;só&nbsp;manda dicas. Quando você confiar, liga a&nbsp;leitura automática. Dá&nbsp;para desligar a&nbsp;qualquer momento.</p></details>
+        <details><summary>O&nbsp;GoGreen me&nbsp;protege de&nbsp;golpes?</summary><p>Ele te&nbsp;ensina a&nbsp;reconhecer os&nbsp;truques antes de&nbsp;cair neles. As&nbsp;vacinas contra o&nbsp;impulso mostram, em&nbsp;doses curtas, como funcionam o&nbsp;"você foi escolhido", o&nbsp;"últimas unidades" e&nbsp;as&nbsp;outras iscas. Ele não bloqueia nada nem lê&nbsp;suas conversas. <a href="#vacinas">Veja as&nbsp;vacinas</a>.</p></details>
+        <details><summary>Preciso dar a&nbsp;senha do&nbsp;banco?</summary><p>Não. O&nbsp;GoGreen só&nbsp;lê&nbsp;as&nbsp;notificações que os&nbsp;apps do&nbsp;banco já&nbsp;mostram no&nbsp;seu celular. Ele nunca entra na&nbsp;sua conta.</p></details>
+        <details><summary>Quais bancos funcionam?</summary><p>Qualquer app de&nbsp;banco, cartão ou&nbsp;vale que avise compras por notificação. Na&nbsp;primeira notificação de&nbsp;cada app, você escolhe se&nbsp;quer que o&nbsp;GoGreen acompanhe.</p></details>
+        <details><summary>Tem para iPhone?</summary><p>Ainda não. O&nbsp;lançamento é&nbsp;no&nbsp;Android. O&nbsp;iPhone não permite que apps leiam notificações de&nbsp;outros apps, então lá&nbsp;o&nbsp;GoGreen vai funcionar de&nbsp;outro jeito, mais para frente.</p></details>
+        <details><summary>E&nbsp;se&nbsp;eu&nbsp;trocar de&nbsp;celular?</summary><p>Exporte o&nbsp;CSV antes. A&nbsp;assinatura e&nbsp;o&nbsp;vitalício voltam sozinhos na&nbsp;mesma conta Google.</p></details>
+        <details><summary>Ele gasta bateria?</summary><p>Pouco. Ele só&nbsp;acorda quando chega uma notificação de&nbsp;um&nbsp;app que você escolheu. Para a&nbsp;captura não parar, deixe o&nbsp;GoGreen sem restrição de&nbsp;bateria.</p></details>
       </div>
     </div>
     <div class="wrap baixar" id="baixar" style="margin-top:36px;padding-top:28px;border-top:1px solid var(--line)">
-      <p class="eyebrow">Baixar o GoGreen</p>
-      <h2 style="margin-top:10px">Em breve na Google Play.</h2>
-      <p class="lead">Grátis, sem anúncios, para Android 10 ou superior. Quer saber assim que sair? Mande <strong>QUERO</strong> no direct do @gogreen.fin.</p>
-      <div class="ctas"><span class="play-pill " data-play><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5v17l9.2-8.5z" fill="#9AD861"/><path d="M4 3.5l12.6 7.2-3.4 1.8z" fill="#E8F3E3"/><path d="M4 20.5l12.6-7.2-3.4-1.8z" fill="#F0BF4C"/><path d="M16.6 10.7l3.4 1.3-3.4 1.3-3.4-1.3z" fill="#F0695D"/></svg><span><small>Em breve na</small>Google Play</span></span><a class="btn btn-ghost" href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener">Entrar na lista de espera</a></div>
+      <p class="eyebrow">Baixar o&nbsp;GoGreen</p>
+      <h2 style="margin-top:10px">Em&nbsp;breve na&nbsp;Google Play.</h2>
+      <p class="lead">Grátis, sem anúncios, para Android 10 ou&nbsp;superior. Quer saber assim que sair? Mande <strong>QUERO</strong> no&nbsp;direct do&nbsp;@gogreen.fin.</p>
+      <div class="ctas"><span class="play-pill " data-play><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5v17l9.2-8.5z" fill="#9AD861"/><path d="M4 3.5l12.6 7.2-3.4 1.8z" fill="#E8F3E3"/><path d="M4 20.5l12.6-7.2-3.4-1.8z" fill="#F0BF4C"/><path d="M16.6 10.7l3.4 1.3-3.4 1.3-3.4-1.3z" fill="#F0695D"/></svg><span><small>Em&nbsp;breve na</small>Google Play</span></span><a class="btn btn-ghost" href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener">Entrar na&nbsp;lista de&nbsp;espera</a></div>
     </div>
   </section>
 
   <section id="privacidade" style="padding-top:0">
     <div class="wrap policy">
-      <p class="eyebrow">Política de privacidade</p>
-      <h2 style="margin-top:10px">Política de privacidade do GoGreen</h2>
-      <p class="small">Última atualização: 5 de novembro de 2026</p>
-      <h3>O que o app lê</h3>
-      <p>Com a sua permissão de acesso às notificações, o GoGreen lê as notificações dos apps de banco, cartão e vale que você escolher, para extrair valor, data, estabelecimento e forma de pagamento. Notificações de outros apps são ignoradas.</p>
-      <h3>Onde os dados ficam</h3>
-      <p>Lançamentos, categorias, tetos, apelido, nomes da família e progresso do jogo ficam num arquivo no armazenamento interno do app, no seu aparelho. O backup automático na nuvem do Android fica desligado. Nenhum desses dados é enviado ao desenvolvedor ou a terceiros.</p>
-      <h3>O que usa internet</h3>
+      <p class="eyebrow">Política de&nbsp;privacidade</p>
+      <h2 style="margin-top:10px">Política de&nbsp;privacidade do&nbsp;GoGreen</h2>
+      <p class="small">Última atualização: 5&nbsp;de&nbsp;novembro de&nbsp;2026</p>
+      <h3>O&nbsp;que o&nbsp;app lê</h3>
+      <p>Com a&nbsp;sua permissão de&nbsp;acesso às&nbsp;notificações, o&nbsp;GoGreen lê&nbsp;as&nbsp;notificações dos apps de&nbsp;banco, cartão e&nbsp;vale que você escolher, para extrair valor, data, estabelecimento e&nbsp;forma de&nbsp;pagamento. Notificações de&nbsp;outros apps são ignoradas.</p>
+      <h3>Onde os&nbsp;dados ficam</h3>
+      <p>Lançamentos, categorias, tetos, apelido, nomes da&nbsp;família e&nbsp;progresso do&nbsp;jogo ficam num arquivo no&nbsp;armazenamento interno do&nbsp;app, no&nbsp;seu aparelho. O&nbsp;backup automático na&nbsp;nuvem do&nbsp;Android fica desligado. Nenhum desses dados é&nbsp;enviado ao&nbsp;desenvolvedor ou&nbsp;a&nbsp;terceiros.</p>
+      <h3>O&nbsp;que usa internet</h3>
       <ul>
-        <li>Google Play Billing, para comprar e verificar a assinatura Pro e os presentes. A Google trata esses pagamentos segundo a política dela.</li>
-        <li>Google Play Install Referrer, para ler o código de convite de quem indicou você.</li>
+        <li>Google Play Billing, para comprar e&nbsp;verificar a&nbsp;assinatura Pro e&nbsp;os&nbsp;presentes. A&nbsp;Google trata esses pagamentos segundo a&nbsp;política dela.</li>
+        <li>Google Play Install Referrer, para ler o&nbsp;código de&nbsp;convite de&nbsp;quem indicou você.</li>
       </ul>
-      <p>O app não usa anúncios, análise de uso nem rastreamento.</p>
+      <p>O&nbsp;app não usa anúncios, análise de&nbsp;uso nem rastreamento.</p>
       <h3>Compartilhamento</h3>
-      <p>Só sai do aparelho o que você escolher compartilhar: o arquivo CSV que você exporta e os cartões de conquista, que não mostram valores em reais.</p>
+      <p>Só&nbsp;sai do&nbsp;aparelho o&nbsp;que você escolher compartilhar: o&nbsp;arquivo CSV que você exporta e&nbsp;os&nbsp;cartões de&nbsp;conquista, que não mostram valores em&nbsp;reais.</p>
       <h3>Seus direitos (LGPD)</h3>
-      <p>Como os dados ficam só no seu celular, você tem controle total: apague um lançamento no app ou desinstale o GoGreen para apagar tudo. Dúvidas? Fale com a gente pelo direct do @gogreen.fin<span class="so-email" hidden> ou pelo e-mail <a class="email" href="#"></a></span>.</p>
+      <p>Como os&nbsp;dados ficam só&nbsp;no&nbsp;seu celular, você tem controle total: apague um&nbsp;lançamento no&nbsp;app ou&nbsp;desinstale o&nbsp;GoGreen para apagar tudo. Dúvidas? Fale com a&nbsp;gente pelo direct do&nbsp;@gogreen.fin<span class="so-email" hidden> ou&nbsp;pelo e-mail <a class="email" href="#"></a></span>.</p>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>GoGreen · feito no Brasil para sair do vermelho</span>
-    <span>Fale com o Verdi no <a href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener">@gogreen.fin</a><span class="so-email" hidden> · <a class="email" href="#"></a></span> · <a href="#privacidade">Privacidade</a></span>
+    <span>GoGreen · feito no&nbsp;Brasil para sair do&nbsp;vermelho</span>
+    <span>Fale com o&nbsp;Verdi no <a href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener">@gogreen.fin</a> e&nbsp;no <a href="https://www.youtube.com/@Gogreen-fin" target="_blank" rel="noopener">YouTube</a><span class="so-email" hidden> · <a class="email" href="#"></a></span> · <a href="#privacidade">Privacidade</a></span>
   </div>
 </footer>
 <script>
