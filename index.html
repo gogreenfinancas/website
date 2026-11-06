@@ -139,7 +139,7 @@
   --f-display:"Baloo 2", "Trebuchet MS", system-ui, sans-serif;
   --f-body:"Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --s1:.8125rem; --s2:1rem; --s3:1.1875rem; --s4:1.5rem; --s5:2.25rem; --s6:clamp(2.6rem,7vw,4.6rem);
+  --s1:.78rem; --s2:.95rem; --s3:1.06rem; --s4:1.35rem; --s5:clamp(1.55rem,3.2vw,1.95rem); --s6:clamp(2.2rem,5.4vw,3.6rem);
   --r:14px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
@@ -161,7 +161,7 @@ p{margin:0}
 a{color:var(--leaf)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--sprout);outline-offset:3px;border-radius:6px}
 .eyebrow{font-family:var(--f-mono);font-size:var(--s1);letter-spacing:.08em;text-transform:uppercase;color:var(--leaf)}
-section{padding-block:clamp(56px,9vw,96px)}
+section{padding-block:clamp(36px,5.5vw,60px)}
 .lead{font-size:var(--s3);color:var(--muted);max-width:60ch}
 
 /* topo */
@@ -175,7 +175,7 @@ section{padding-block:clamp(56px,9vw,96px)}
 @media (max-width:620px){.top nav .opt{display:none}}
 
 /* herói */
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(24px,5vw,56px) clamp(56px,8vw,88px)}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(12px,3vw,28px) clamp(32px,5vw,52px)}
 .hero>*{min-width:0}
 .hero h1{font-size:var(--s6);font-weight:800}
 .strike{position:relative;color:var(--red);white-space:nowrap}
@@ -192,7 +192,7 @@ section{padding-block:clamp(56px,9vw,96px)}
 .tags{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:var(--s1);color:var(--muted)}
 .tags span::before{content:"✓ ";color:var(--leaf);font-weight:700}
 
-.phone{justify-self:center;width:min(330px,100%);aspect-ratio:9/17;max-width:100%;background:var(--deep);border-radius:38px;padding:16px 14px;box-shadow:0 30px 60px -30px rgba(10,40,18,.45);display:flex;flex-direction:column;gap:14px;position:relative}
+.phone{justify-self:center;width:min(280px,100%);aspect-ratio:9/16.5;max-width:100%;background:var(--deep);border-radius:38px;padding:16px 14px;box-shadow:0 30px 60px -30px rgba(10,40,18,.45);display:flex;flex-direction:column;gap:14px;position:relative}
 .phone .bar{display:flex;justify-content:space-between;color:var(--on-deep);opacity:.7;font-family:var(--f-mono);font-size:.72rem;padding:4px 10px 0}
 .notif{background:rgba(255,255,255,.1);color:var(--on-deep);border-radius:18px;padding:12px 14px;font-size:.82rem;line-height:1.4}
 .notif b{display:block;font-size:.76rem;opacity:.75;font-weight:600;margin-bottom:2px}
@@ -220,7 +220,7 @@ section{padding-block:clamp(56px,9vw,96px)}
 .ruler p strong{color:var(--ink)}
 
 /* passos */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px;counter-reset:passo}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:24px;counter-reset:passo}
 .step{display:grid;gap:10px;align-content:start;min-width:0}
 .step::before{counter-increment:passo;content:counter(passo);font-family:var(--f-display);font-weight:800;font-size:2.4rem;color:var(--sprout);line-height:1}
 .step p{color:var(--muted)}
@@ -230,13 +230,13 @@ section{padding-block:clamp(56px,9vw,96px)}
 .deep{background:var(--deep);color:var(--on-deep)}
 .deep .eyebrow{color:var(--sprout)}
 .deep .lead{color:color-mix(in srgb,var(--on-deep) 78%,transparent)}
-.priv{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 40px;margin-top:36px}
+.priv{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 32px;margin-top:24px}
 .priv div{border-top:1px solid color-mix(in srgb,var(--on-deep) 22%,transparent);padding-top:16px;min-width:0}
 .priv p{color:color-mix(in srgb,var(--on-deep) 78%,transparent);margin-top:6px}
 @media (max-width:640px){.priv{grid-template-columns:1fr}}
 
 /* jogo */
-.game{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start;margin-top:36px}
+.game{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:start;margin-top:24px}
 .game>*{min-width:0}
 .levels{display:grid;gap:12px}
 .lv{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
@@ -248,7 +248,7 @@ section{padding-block:clamp(56px,9vw,96px)}
 @media (max-width:760px){.game{grid-template-columns:1fr}}
 
 /* preços */
-.plans{overflow-x:auto;margin-top:36px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.plans{overflow-x:auto;margin-top:22px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
 table{border-collapse:collapse;width:100%;min-width:520px}
 th,td{text-align:left;padding:13px 18px;border-bottom:1px solid var(--line);vertical-align:top}
 tr:last-child td{border-bottom:0}
@@ -267,7 +267,7 @@ td:nth-child(3),th:nth-child(3){background:color-mix(in srgb,var(--sprout) 9%,tr
 .code{font-family:var(--f-mono);font-size:1.3rem;letter-spacing:.12em;padding:10px 16px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}
 
 /* faq */
-.faq{display:grid;gap:10px;margin-top:32px;max-width:760px}
+.faq{display:grid;gap:4px;margin-top:20px;max-width:760px}
 details{border-bottom:1px solid var(--line);padding-block:14px}
 summary{cursor:pointer;font-weight:600;font-size:var(--s3);list-style:none;display:flex;justify-content:space-between;gap:16px}
 summary::after{content:"+";color:var(--leaf);font-family:var(--f-mono)}
@@ -294,9 +294,36 @@ a.play-pill:hover{filter:brightness(1.12)}
 .baixar .ctas{justify-content:center}
 
 @media (max-width:520px){.scale-legend{grid-template-columns:1fr 1fr 1fr;gap:8px}}
+/* rodada 2 */
+html{scroll-snap-type:y proximity}
+.top,.hero,main>section,footer{scroll-snap-align:start}
+.teto{margin-top:26px;padding:18px 20px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);display:grid;gap:10px}
+.teto p{color:var(--muted);font-size:var(--s1)}
+.teto p strong{color:var(--ink)}
+.priv4{grid-template-columns:repeat(4,1fr)}
+.priv4 h3{font-size:var(--s2)}
+.priv4 p{font-size:var(--s1)}
+@media (max-width:860px){.priv4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.priv4{grid-template-columns:1fr}}
+.porque{margin-top:24px;padding:16px 20px;border-radius:var(--r);border:1px dashed color-mix(in srgb,var(--on-deep) 35%,transparent)}
+.porque h3{font-size:var(--s2)}
+.porque p{margin-top:6px;color:color-mix(in srgb,var(--on-deep) 78%,transparent);font-size:var(--s1)}
+.deep .step h3{color:var(--on-deep)}
+.deep .step p{color:color-mix(in srgb,var(--on-deep) 78%,transparent)}
+.lv{padding:10px 14px}
+details{padding-block:10px}
+.price{padding:14px}
+.price .v{font-size:1.6rem}
+th,td{padding:9px 14px}
+.verdi-grid{grid-template-columns:200px 1fr}
+.verdi-grid .lead{font-size:var(--s2);margin-top:12px!important}
+.vac ul{margin-top:18px;gap:10px}
+.vac li{padding:12px 14px}
+@media (max-width:700px){.verdi-grid{grid-template-columns:1fr}}
+
 /* carrosséis */
-.car{position:relative;margin-top:28px}
-.car-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/3);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;list-style:none;padding:0 0 6px;margin:0;scrollbar-width:none;overscroll-behavior-x:contain}
+.car{position:relative;margin-top:20px;max-width:900px;margin-inline:auto}
+.car-track{scroll-behavior:smooth;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/3);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;list-style:none;padding:0 0 6px;margin:0;scrollbar-width:none;overscroll-behavior-x:contain}
 .car-track::-webkit-scrollbar{display:none}
 .car-card{scroll-snap-align:start;min-width:0}
 .car-card img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);background:var(--card)}
@@ -366,15 +393,6 @@ a.play-pill:hover{filter:brightness(1.12)}
     </div>
   </div>
 
-  <div class="ruler">
-    <div class="wrap">
-      <div class="scale" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="scale-legend"><span>OK · até 90%</span><span>Atenção</span><span>Estourou · +100%</span></div>
-      <p>Cada categoria tem um <strong>teto mensal</strong>. Até 90% do teto ela fica verde, entre 90% e 100% fica amarela e acima disso vermelha. Contas fixas, como aluguel, ficam verdes até 100%. O mês vai do dia 1 ao último dia, como numa planilha.</p>
-    </div>
-  </div>
-
-
   <section id="o-que-e">
     <div class="wrap">
       <p class="eyebrow">Em 6 cartões</p>
@@ -405,10 +423,15 @@ a.play-pill:hover{filter:brightness(1.12)}
         <div class="step"><h3>Você confirma</h3><p>Um toque na Entrada. Se corrigir a categoria uma vez, ele aprende e acerta das próximas.</p></div>
       </div>
       <p class="lead" style="margin-top:36px">Dinheiro vivo ou boleto? Use o botão + para lançar à mão. E no fim do mês exporte tudo em CSV para a sua planilha.</p>
+      <div class="teto">
+        <div class="scale" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="scale-legend"><span>OK · até 90%</span><span>Atenção</span><span>Estourou</span></div>
+        <p>No passo 2, cada categoria aparece com a cor do seu <strong>teto mensal</strong>: verde até 90%, amarela até 100% e vermelha acima disso. Contas fixas, como o aluguel, ficam verdes até 100%.</p>
+      </div>
     </div>
   </section>
 
-  <section id="sem-pegadinha">
+  <section id="sem-pegadinha" class="deep">
     <div class="wrap">
       <p class="eyebrow">Sem pegadinha</p>
       <h2 style="margin-top:10px">Comece só com as dicas. Libere as notificações quando confiar.</h2>
@@ -418,10 +441,16 @@ a.play-pill:hover{filter:brightness(1.12)}
         <div class="step"><h3>Confira você mesmo</h3><p>Ligue o modo avião e veja: tudo funciona igual. Não tem login, não tem servidor, não tem para onde os dados irem.</p></div>
         <div class="step"><h3>Libere quando quiser</h3><p>Confiou? Ligue a leitura das notificações e o GoGreen passa a anotar sozinho. Mudou de ideia? Desligue, e ele volta a ser só dicas.</p></div>
       </div>
-      <div class="invite" style="margin-top:40px">
+      <div class="priv priv4">
+        <div><h3>Sem internet</h3><p>O app funciona offline. A única conexão é a da Google Play, para a assinatura Pro.</p></div>
+        <div><h3>Sem senha do banco</h3><p>Nada de Open Finance nem acesso à conta. Você escolhe quais apps ele acompanha.</p></div>
+        <div><h3>Sem anúncios</h3><p>Nem na versão gratuita. Ninguém compra os seus dados porque eles não vão para lugar nenhum.</p></div>
+        <div><h3>Backup na sua mão</h3><p>Os dados ficam num arquivo interno do app. Para guardar uma cópia, exporte o CSV.</p></div>
+      </div>
+      <div class="porque">
         <div>
           <h3>Por que a gente repete tanto "sem pegadinha"?</h3>
-          <p class="small" style="margin-top:6px;font-size:var(--s2)">Porque app de finanças grátis costuma esconder alguma coisa: anúncio, venda de dados, empréstimo empurrado. Você tem razão em desconfiar. Então a gente repete, em todo lugar, o que o GoGreen não faz, e deixa você conferir no seu celular. Sem anúncio, sem senha do banco, sem login, sem internet.</p>
+          <p>Porque app de finanças grátis costuma esconder alguma coisa: anúncio, venda de dados, empréstimo empurrado. Você tem razão em desconfiar. Então a gente repete, em todo lugar, o que o GoGreen não faz, e deixa você conferir no seu celular. Sem anúncio, sem senha do banco, sem login, sem internet.</p>
         </div>
       </div>
     </div>
@@ -462,20 +491,6 @@ a.play-pill:hover{filter:brightness(1.12)}
     </div>
   </section>
 
-  <section class="deep">
-    <div class="wrap">
-      <p class="eyebrow">Privacidade</p>
-      <h2 style="margin-top:10px">Seus gastos nunca saem do celular.</h2>
-      <p class="lead" style="margin-top:16px">O GoGreen não tem servidor, não pede login e não conversa com o seu banco. Ele só lê as notificações que já aparecem na sua tela.</p>
-      <div class="priv">
-        <div><h3>Sem internet</h3><p>O app funciona offline. A única conexão é a da Google Play, para a assinatura Pro.</p></div>
-        <div><h3>Sem senha do banco</h3><p>Nada de Open Finance nem acesso à conta. Você escolhe quais apps ele acompanha.</p></div>
-        <div><h3>Sem anúncios</h3><p>Nem na versão gratuita. Ninguém compra os seus dados porque eles não vão para lugar nenhum.</p></div>
-        <div><h3>Backup na sua mão</h3><p>Os dados ficam num arquivo interno do app. Para guardar uma cópia, exporte o CSV.</p></div>
-      </div>
-    </div>
-  </section>
-
   <section id="verdi" class="deep">
     <div class="wrap verdi-grid">
       <img src="img/verdi.svg" width="300" height="420" loading="lazy" alt="Verdi, o embaixador do GoGreen: um personagem sorridente de camiseta verde, com um broto na cabeça e o celular na mão, acenando">
@@ -491,7 +506,7 @@ a.play-pill:hover{filter:brightness(1.12)}
 
   <section>
     <div class="wrap">
-      <p class="eyebrow">Para não desistir em fevereiro</p>
+      <p class="eyebrow">Para não desistir no meio do caminho</p>
       <h2 style="margin-top:10px">Sair do vermelho vira jogo.</h2>
       <div class="game">
         <div class="levels" aria-label="Desafio da semana em três níveis">
@@ -535,27 +550,13 @@ a.play-pill:hover{filter:brightness(1.12)}
         <div class="price"><span class="small">Guardião Vitalício</span><span class="v">Prêmio</span><p>não está à venda: quem fica 6 meses seguidos no verde e completa os desafios ganha o Pro para sempre.</p></div>
       </div>
       <p class="small" style="margin-top:14px">Cobrança pela Google Play. Se a assinatura acabar, nada é apagado: o app volta aos limites do gratuito.</p>
-    </div>
-  </section>
-
-  <section style="padding-top:0">
-    <div class="wrap">
-      <div class="invite">
+      <div class="invite" style="margin-top:20px">
         <div>
           <h3>Indique um amigo e os dois ganham Pro</h3>
           <p class="small" style="margin-top:6px;font-size:var(--s2)">Quem instala pelo seu link ganha 30 dias de Pro. Depois de 3 dias de uso, você também ganha 30 dias.</p>
         </div>
-        <span class="code" aria-label="Exemplo de código de convite">JAK7Q2</span>
+        <span class="code" aria-label="Exemplo de código de convite">VERDI7</span>
       </div>
-    </div>
-  </section>
-
-  <section id="baixar" class="baixar" style="padding-top:0">
-    <div class="wrap">
-      <p class="eyebrow">Baixar o GoGreen</p>
-      <h2 style="margin-top:10px">Em breve na Google Play.</h2>
-      <p class="lead">Grátis, sem anúncios, para Android 10 ou superior. Quer saber assim que sair? Mande <strong>QUERO</strong> no direct do @gogreen.fin.</p>
-      <div class="ctas"><span class="play-pill " data-play><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5v17l9.2-8.5z" fill="#9AD861"/><path d="M4 3.5l12.6 7.2-3.4 1.8z" fill="#E8F3E3"/><path d="M4 20.5l12.6-7.2-3.4-1.8z" fill="#F0BF4C"/><path d="M16.6 10.7l3.4 1.3-3.4 1.3-3.4-1.3z" fill="#F0695D"/></svg><span><small>Em breve na</small>Google Play</span></span><a class="btn btn-ghost" href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener">Entrar na lista de espera</a></div>
     </div>
   </section>
 
@@ -572,6 +573,12 @@ a.play-pill:hover{filter:brightness(1.12)}
         <details><summary>E se eu trocar de celular?</summary><p>Exporte o CSV antes. A assinatura e o vitalício voltam sozinhos na mesma conta Google.</p></details>
         <details><summary>Ele gasta bateria?</summary><p>Pouco. Ele só acorda quando chega uma notificação de um app que você escolheu. Para a captura não parar, deixe o GoGreen sem restrição de bateria.</p></details>
       </div>
+    </div>
+    <div class="wrap baixar" id="baixar" style="margin-top:36px;padding-top:28px;border-top:1px solid var(--line)">
+      <p class="eyebrow">Baixar o GoGreen</p>
+      <h2 style="margin-top:10px">Em breve na Google Play.</h2>
+      <p class="lead">Grátis, sem anúncios, para Android 10 ou superior. Quer saber assim que sair? Mande <strong>QUERO</strong> no direct do @gogreen.fin.</p>
+      <div class="ctas"><span class="play-pill " data-play><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5v17l9.2-8.5z" fill="#9AD861"/><path d="M4 3.5l12.6 7.2-3.4 1.8z" fill="#E8F3E3"/><path d="M4 20.5l12.6-7.2-3.4-1.8z" fill="#F0BF4C"/><path d="M16.6 10.7l3.4 1.3-3.4 1.3-3.4-1.3z" fill="#F0695D"/></svg><span><small>Em breve na</small>Google Play</span></span><a class="btn btn-ghost" href="https://instagram.com/gogreen.fin" target="_blank" rel="noopener">Entrar na lista de espera</a></div>
     </div>
   </section>
 
@@ -634,6 +641,21 @@ document.querySelectorAll('[data-car]').forEach(function(car){
   track.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(idx()+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(idx()-1)}});
   var t;track.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(upd,60)},{passive:true});
   window.addEventListener('resize',upd);upd();
+  // giro automático: 4 s por cartão, volta ao início, pausa com toque, mouse ou foco
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var pausa=false, visivel=false, ultimo=0;
+  function parar(){pausa=true;ultimo=Date.now()}
+  ['pointerenter','pointerdown','touchstart','focusin','wheel'].forEach(function(ev){car.addEventListener(ev,parar,{passive:true})});
+  car.addEventListener('pointerleave',function(){pausa=false;ultimo=Date.now()});
+  dots.addEventListener('click',parar);
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){visivel=es[0].isIntersecting},{threshold:.5}).observe(track)}else{visivel=true}
+  setInterval(function(){
+    if(!visivel||document.hidden) return;
+    if(pausa&&Date.now()-ultimo<8000) return;
+    pausa=false;
+    var i=idx(),max=Math.max(0,Math.round((track.scrollWidth-track.clientWidth)/step()));
+    go(i>=max?0:i+1);
+  },4000);
 });
 </script>
 </body></html>
