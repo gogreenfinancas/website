@@ -54,14 +54,15 @@
       item('🛒','Mercado Bom Preço','App do banco · ter 19:05<br>Mercado/compras de casa · Crédito','R$ 86,40')+
       '</div></div>'},
     mes:function(){function c(n,v,t,p,cl){return '<div class="cat"><div class="l"><b>'+n+'</b><span>'+v+' de '+t+'</span></div><div class="barra"><i class="'+cl+'" data-w="'+p+'"></i></div></div>'}
-      return '<div class="ft-rola"><h4>‹ '+mesNome+' ›</h4>'+
-      '<div class="cd"><p>Tudo sob controle, com atenção em algumas categorias.</p><small style="margin-top:.35em">Sobra real: R$ 812,00 (renda − gastos − contas fixas a sair)</small></div>'+
+      return '<div class="v-mes"><div class="ft-rola"><h4>‹ '+mesNome+' ›</h4>'+
+      '<div class="cd"><p>Tudo sob controle, com atenção em algumas categorias.</p><small style="margin-top:.35em">Sobra real: R$ 812,00 (renda − gastos − contas fixas a sair)</small><span class="btn-ft lin-bt" data-b="conferir">📄 Conferir com extrato</span></div>'+
       c('Moradia','R$ 1.100','R$ 1.100',100,'')+
       c('Mercado/compras de casa','R$ 552,90','R$ 600',92,'am')+
       c('Alimentação fora','R$ 140','R$ 200',70,'')+
       c('Combustível','R$ 210','R$ 200',100,'vm')+
       c('Lazer/eventos','R$ 35','R$ 100',35,'')+
-      c('Transporte por app','R$ 48','R$ 75',64,'')+'</div>'},
+      c('Transporte por app','R$ 48','R$ 75',64,'')+'</div></div>'+
+      '<div class="v-ext" hidden><p class="volta">‹ Fechar</p><h4>Conferir '+mesNome.toLowerCase()+'</h4><p class="passo"></p><div class="ext"></div></div>'},
     eco:function(){function f(e,t,p){return '<div class="fer" data-f="'+t+'"><em>'+e+'</em><b>'+t+'</b><span>'+p+'</span></div>'}
       return '<div class="v-grade"><h4>O que me ajuda a gastar menos?</h4><p class="sub">Cada ferramenta guarda o seu placar de dinheiro salvo.</p><div class="grade">'+
       f('🧮','Comparador de gôndola','Qual sai mais barato?')+f('🧊','Congelador','Preciso mesmo disso agora?')+
@@ -89,11 +90,19 @@
       return '<div class="ft-rola"><h4>Ferramentas</h4><p class="sub">Como configuro e cuido dos meus dados?</p>'+
       l('📲','Central de captura','Lendo 2 apps. Fontes, aprendizado e ignorados.')+
       l('🔔','Notificações e interações','Quanto eu falo com você: nível, dicas, horários de risco.')+
+      l('🎨','Aparência','Paleta de cores, claro ou escuro e cards da tela Hoje.')+
       l('🏷️','Categorias','30 categorias. Criar, renomear, apagar e mudar o teto.')+
       l('📄','Exportar para a planilha','CSV no formato da aba “Lançamentos diários”.')+
       l('💾','Cópia de segurança','Salve tudo num arquivo e restaure em outro celular. Sem internet.')+
       l('🤝','Sem pegadinha','Os 7 compromissos: sem internet, nunca anúncio, nada de senha ou CPF.')+
-      l('ℹ️','Sobre o GoGreen','Seus dados ficam só neste aparelho.')+'</div>'}
+      l('ℹ️','Sobre o GoGreen','Seus dados ficam só neste aparelho.')+'</div>'+
+      '<div class="v-apa" hidden><p class="volta">‹ Ferramentas</p><h4>Aparência</h4><p class="sub">Escolha as cores do seu GoGreen. Muda na hora.</p>'+
+      '<div class="tit">Paleta</div><div class="chips">'+
+      [['auto','Automática','conic-gradient(#81C784 0 33%,#F2C04B 0 66%,#FFB59E 0)'],['verde','Verde GoGreen','#2E7D32'],['oceano','Oceano','#1565C0'],['sol','Pôr do sol','#C1502E'],['dourado','Dourado','#7A5900'],['lavanda','Lavanda','#6750A4'],['grafite','Grafite','#37474F']]
+        .map(function(x){return '<span class="chip'+(x[0]==='verde'?' on':'')+'" data-pal="'+x[0]+'"><i style="background:'+x[2]+'"></i>'+x[1]+'</span>'}).join('')+'</div>'+
+      '<div class="tit">Claro ou escuro</div><div class="chips"><span class="chip" data-modo="sis">Igual ao celular</span><span class="chip" data-modo="claro">Claro</span><span class="chip on" data-modo="escuro">Escuro</span></div>'+
+      '<div class="tit">Cards da tela Hoje</div><div class="chips"><span class="chip on">Coloridos</span><span class="chip">Neutros</span></div>'+
+      '<p class="sub nota-apa" style="margin-top:.7em"></p></div>'}
   };
 
   /* ---------- demonstrações ---------- */
@@ -117,8 +126,8 @@
       for(var i=0;i<bs.length;i++){bs[i].style.width=bs[i].dataset.w+'%';await espera(260,f)}
       await espera(1800,f);legenda('Verde: tranquilo. Amarelo: passou de 90% do teto. Vermelho: passou do teto.');
       toque(p.querySelectorAll('.cat')[1]);await espera(2600,f);toque(p.querySelectorAll('.cat')[3]);
-      await espera(2400,f);rolar(p,4);legenda('Contas fixas, como a moradia, ficam verdes até 100%. A sobra real já desconta o que ainda vai sair.');
-      await espera(4200,f)},
+      await espera(2400,f);legenda('Contas fixas, como a moradia, ficam verdes até 100%. A sobra real já desconta o que ainda vai sair.');
+      await espera(3800,f);await importar(p,f)},
     eco:async function(f){var p=pag('eco'),g=p.querySelector('.v-grade'),c=p.querySelector('.v-comp'),z=p.querySelector('.v-gel');
       legenda('Em Economizar ficam as ferramentas para gastar menos.');await espera(2200,f);
       toque(p.querySelector('[data-f="Comparador de gôndola"]'));await espera(900,f);g.hidden=true;c.hidden=false;
@@ -137,13 +146,64 @@
       await espera(2600,f);legenda('Seis meses seguidos no verde como assinante, mais os desafios, dão o Guardião Vitalício.');await espera(4200,f)},
     ferr:async function(f){var p=pag('ferr');legenda('Na engrenagem você cuida dos seus dados.');await espera(1800,f);
       toque(p.querySelector('[data-i="Central de captura"]'));legenda('Você escolhe quais apps de banco o GoGreen lê. O resto é ignorado.');await espera(3200,f);
+      await aparencia(p,f);
       toque(p.querySelector('[data-i="Cópia de segurança"]'));legenda('Seus dados ficam só neste celular. A cópia de segurança é um arquivo seu.');await espera(3400,f);
       toque(p.querySelector('[data-i="Sem pegadinha"]'));legenda('Sem pegadinha: sem internet, sem anúncio, sem senha do banco.');await espera(3600,f)}
   };
 
+  /* ---------- Aparência: a paleta muda o celular inteiro ---------- */
+  function tema(t){if(t)ft.setAttribute('data-tema',t);else ft.removeAttribute('data-tema')}
+  async function aparencia(p,f){var m=p.querySelector('.ft-rola'),a=p.querySelector('.v-apa'),nota=a.querySelector('.nota-apa');
+    toque(p.querySelector('[data-i="Aparência"]'));await espera(900,f);m.hidden=true;a.hidden=false;
+    legenda('Em Aparência você escolhe as cores do seu GoGreen. Muda na hora.');await espera(1800,f);
+    function pal(k){a.querySelectorAll('[data-pal]').forEach(function(c){c.classList.toggle('on',c.dataset.pal===k)});toque(a.querySelector('[data-pal="'+k+'"]'))}
+    function modo(k){a.querySelectorAll('[data-modo]').forEach(function(c){c.classList.toggle('on',c.dataset.modo===k)});toque(a.querySelector('[data-modo="'+k+'"]'))}
+    pal('oceano');tema('oceano');legenda('Oceano: azuis calmos.');await espera(2200,f);
+    pal('lavanda');tema('lavanda');legenda('Lavanda: lilás suave.');await espera(2200,f);
+    pal('sol');tema('sol');legenda('Pôr do sol: coral e pêssego, quentinho.');await espera(2200,f);
+    pal('verde');modo('claro');tema('claro');legenda('Claro ou escuro, como você preferir.');await espera(2600,f);
+    modo('escuro');pal('auto');tema('dourado');nota.textContent='Muda com o seu mês: verde no verde, dourado na atenção, coral no aperto.';
+    legenda('Na Automática, as cores acompanham o seu mês: dourado quando pede atenção.');await espera(3200,f);
+    tema('');legenda('E verde quando o mês está no verde.');await espera(2200,f);
+    a.hidden=true;m.hidden=false;await espera(600,f)}
+
+  /* ---------- Conferir com extrato: 4 passos ---------- */
+  var MM=('0'+(new Date().getMonth()+1)).slice(-2);
+  async function importar(p,f){var vm=p.querySelector('.v-mes'),ve=p.querySelector('.v-ext'),ps=ve.querySelector('.passo'),ex=ve.querySelector('.ext');
+    function passo(n,t,h){ps.textContent='Passo '+n+' de 4 · '+t;ex.innerHTML=h}
+    var mesMin=mesNome.toLowerCase();
+    rolar(p,0);toque(p.querySelector('[data-b="conferir"]'));legenda('No fim do mês, confira com o extrato do banco.');await espera(900,f);
+    vm.hidden=true;ve.hidden=false;
+    passo(1,'Banco e arquivo','<div class="tit">Qual é o banco?</div><div class="chips"><span class="chip">Itaú</span><span class="chip">BB</span><span class="chip on">Nubank</span><span class="chip">Santander</span><span class="chip">Outro</span></div>'+
+      '<span class="btn-ft" data-b="arq">Escolher o arquivo (PDF, CSV ou OFX)</span><p class="sub">O arquivo é lido aqui no celular e não fica guardado. Do PDF eu pego só a data, a descrição e o valor: nome, CPF, agência e conta ficam de fora.</p>');
+    legenda('Escolha o banco e o arquivo: PDF, CSV ou OFX. Tudo é lido aqui no celular.');await espera(3000,f);
+    toque(ex.querySelector('[data-b="arq"]'));await espera(700,f);
+    ex.querySelector('[data-b="arq"]').innerHTML='<span class="gira"></span> Lendo o arquivo…';await espera(1500,f);
+    passo(2,'Período','<div class="cd"><p>O arquivo vai de 1º a 30 de '+mesMin+', com 28 lançamentos.</p><small style="margin-top:.3em">A soma bate com o total do banco. 🌿</small></div>'+
+      '<div class="tit">Que período você quer conferir?</div><div class="chips col"><span class="chip">O arquivo todo</span><span class="chip on">Só '+mesMin+' (o mês desta tela)</span><span class="chip">Escolher as datas</span></div>'+
+      '<span class="btn-ft" data-b="prev">Ver a prévia (28)</span>');
+    legenda('Ele separa o período e confere se a soma bate com o total do banco.');await espera(3200,f);
+    toque(ex.querySelector('[data-b="prev"]'));await espera(800,f);
+    function ln(d,t,v){return '<div class="lin"><span class="chk">☑</span><span>'+d+'/'+MM+'</span><b>'+t+'</b><span>'+v+'</span></div>'}
+    passo(3,'Prévia','<p class="sub">Confira o que eu li. Desmarque o que não quer conferir e toque numa linha para corrigir.</p>'+
+      ln('03','PADARIA PAO QUENTE','R$ 42,90')+ln('05','POSTO BOM CAMINHO','R$ 150,00')+ln('08','FARMACIA VIDA','R$ 37,80')+ln('09','STREAMING PLUS','R$ 39,90')+ln('12','FEIRA DO BAIRRO','R$ 64,00')+
+      '<span class="btn-ft" data-b="conf">Conferir com o app (28)</span>');
+    legenda('Você vê a prévia do que ele leu e corrige o que precisar.');await espera(3200,f);
+    toque(ex.querySelector('[data-b="conf"]'));await espera(800,f);
+    passo(4,'Conferir','<div class="cd"><p>25 já estão no app. Faltam 3 no app.</p></div><div class="tit">Está no extrato e falta no app</div>'+
+      '<div class="lin"><b>FARMACIA VIDA</b><span>08/'+MM+' · R$ 37,80</span></div><div class="lin"><b>STREAMING PLUS</b><span>09/'+MM+' · R$ 39,90</span></div><div class="lin"><b>FEIRA DO BAIRRO</b><span>12/'+MM+' · R$ 64,00</span></div>'+
+      '<span class="btn-ft" data-b="imp">Importar os 3 que faltam</span><p class="sub">Entram anotados, na categoria que eu sugerir. Dá para mudar tocando neles depois.</p>');
+    legenda('Ele mostra o que o banco tem e o app não tem.');await espera(3000,f);
+    toque(ex.querySelector('[data-b="imp"]'));await espera(800,f);
+    ps.textContent='';ex.innerHTML='<div class="cd pri"><p><b>Importação concluída</b></p><p>3 lançamentos importados · 25 gastos batem</p></div><span class="btn-ft" data-b="ok">Marcar '+mesMin+' como conferido</span>';
+    legenda('O que faltou entra com um toque, sem digitar nada.');await espera(2200,f);
+    toque(ex.querySelector('[data-b="ok"]'));await espera(700,f);
+    ex.querySelector('[data-b="ok"]').outerHTML='<p class="sub" style="color:var(--pri);font-weight:700">✓ Conferido com o extrato</p>';
+    legenda('Mês conferido. O arquivo não fica guardado no celular.');await espera(2600,f)}
+
   /* ---------- navegação ---------- */
   function mostrar(aba){
-    estado.aba=aba;estado.ficha++;var f=estado.ficha;semAviso();semSnack();
+    estado.aba=aba;estado.ficha++;var f=estado.ficha;semAviso();semSnack();tema('');
     ft.querySelectorAll('.ft-pag').forEach(function(x){var on=x.dataset.p===aba;x.classList.toggle('on',on);if(on)x.innerHTML=TELAS[aba]()});
     ft.querySelectorAll('.ft-nav button').forEach(function(b){var on=b.dataset.a===aba;b.classList.toggle('on',on);b.setAttribute('aria-current',on?'page':'false')});
     var e=$('.ft-eng');e.classList.toggle('on',aba==='ferr');$('.ft-fab').style.display=aba==='ferr'?'none':'';
