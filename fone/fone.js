@@ -94,7 +94,7 @@
       l('🏷️','Categorias','30 categorias. Criar, renomear, apagar e mudar o teto.')+
       l('📄','Exportar para a planilha','CSV no formato da aba “Lançamentos diários”.')+
       l('💾','Cópia de segurança','Salve tudo num arquivo e restaure em outro celular. Sem internet.')+
-      l('🤝','Sem pegadinha','Os 7 compromissos: sem internet, nunca anúncio, nada de senha ou CPF.')+
+      l('🤝','Sem pegadinha','Os 7 compromissos: dados só no celular, nunca anúncio, nada de senha ou CPF.')+
       l('ℹ️','Sobre o GoGreen','Seus dados ficam só neste aparelho.')+'</div>'+
       '<div class="v-apa" hidden><p class="volta">‹ Ferramentas</p><h4>Aparência</h4><p class="sub">Escolha as cores do seu GoGreen. Muda na hora.</p>'+
       '<div class="tit">Paleta</div><div class="chips">'+
@@ -148,7 +148,7 @@
       toque(p.querySelector('[data-i="Central de captura"]'));legenda('Você escolhe quais apps de banco o GoGreen lê. O resto é ignorado.');await espera(3200,f);
       await aparencia(p,f);
       toque(p.querySelector('[data-i="Cópia de segurança"]'));legenda('Seus dados ficam só neste celular. A cópia de segurança é um arquivo seu.');await espera(3400,f);
-      toque(p.querySelector('[data-i="Sem pegadinha"]'));legenda('Sem pegadinha: sem internet, sem anúncio, sem senha do banco.');await espera(3600,f)}
+      toque(p.querySelector('[data-i="Sem pegadinha"]'));legenda('Sem pegadinha: seus dados não saem do celular, sem anúncio, sem senha do banco.');await espera(3600,f)}
   };
 
   /* ---------- Aparência: a paleta muda o celular inteiro ---------- */
