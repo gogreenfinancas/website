@@ -80,7 +80,7 @@
       l('😊 GoGreen Ana!','Toque para trocar o apelido.')+l('🍃 Meu progresso · nível 4','Folhinhas, medalhas e desafios.')+
       l('🌱 Meu plano: Gratuito','O que o Pro libera, gerenciar a assinatura e restaurar compras.')+l('💵 Renda e tetos','Renda R$ 5.000,00')+
       l('👨‍👩‍👧 Minha família','Quem é importante para você. Os nomes aparecem no prêmio de fim de mês.')+
-      l('📣 Convide amigos, ganhe Pro','Quem chega pelo seu link ganha 30 dias de Pro, e você também.')+'</div>'+
+      l('📣 Convide amigos, ganhe Pro','Quem chega pelo seu link ganha 7 dias de Pro, e você também.')+'</div>'+
       '<div class="v-prog" hidden><p class="volta">‹ Eu</p><h4>🍃 Meu progresso</h4>'+
       '<div class="cd"><small>Nível 4 · 640 folhinhas</small><div class="barra"><i data-w="40"></i></div><small style="margin-top:.35em">Faltam 160 folhinhas para o nível 5.</small></div>'+
       '<div class="tit">Medalhas</div><div class="med"><span>👣 Primeiro passo</span><span>🌿 Semana verde</span><span>🎯 Desafiante</span><span class="off">🔥 30 dias no verde</span><span class="off">🏆 Mês no verde</span></div>'+
