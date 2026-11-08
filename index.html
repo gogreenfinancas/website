@@ -198,10 +198,6 @@ section{padding-block:clamp(36px,5.5vw,60px)}
 /* régua */
 .ruler{background:var(--card);border-block:1px solid var(--line)}
 .ruler .wrap{padding-block:30px;display:grid;gap:14px}
-.scale{display:grid;grid-template-columns:90fr 10fr 18fr;height:14px;border-radius:99px;overflow:hidden}
-.scale i:nth-child(1){background:var(--leaf)}.scale i:nth-child(2){background:var(--amber)}.scale i:nth-child(3){background:var(--red)}
-.scale-legend{display:grid;grid-template-columns:90fr 10fr 18fr;font-family:var(--f-mono);font-size:var(--s1);color:var(--muted);font-variant-numeric:tabular-nums}
-.scale-legend span:nth-child(2){text-align:center}.scale-legend span:nth-child(3){text-align:right}
 .ruler p{max-width:70ch;color:var(--muted)}
 .ruler p strong{color:var(--ink)}
 
@@ -291,13 +287,9 @@ a.play-pill:hover{filter:brightness(1.12)}
 .baixar .lead{margin:14px auto 0}
 .baixar .ctas{justify-content:center}
 
-@media (max-width:520px){.scale-legend{grid-template-columns:1fr 1fr 1fr;gap:8px}}
 /* rodada 2 */
 html{scroll-snap-type:y proximity}
 .top,.hero,main>section,footer{scroll-snap-align:start}
-.teto{margin-top:26px;padding:18px 20px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);display:grid;gap:10px}
-.teto p{color:var(--muted);font-size:var(--s1)}
-.teto p strong{color:var(--ink)}
 .priv4{grid-template-columns:repeat(4,1fr)}
 .priv4 h3{font-size:var(--s2)}
 .priv4 p{font-size:var(--s1)}
@@ -354,6 +346,15 @@ p,li,td,th,summary,.small,.lead{text-wrap:pretty}
 .regra{margin:0;padding-left:1.1em;color:var(--muted);font-size:.92rem;display:grid;gap:2px}
 .price p strong{color:var(--ink)}
 @media (max-width:560px){table{min-width:0;font-size:.82rem}th,td{padding:9px 8px}th:first-child,td:first-child{padding-left:12px}}
+/* paginação: cada bloco cabe numa tela de notebook (1366x768) */
+@media (min-width:821px){
+  .hero{padding-bottom:16px}
+  .fone-area .fone{width:min(100%,calc((100vh - 245px)*.4839))}
+  #sem-pegadinha{padding-block:40px}
+  #sem-pegadinha .steps,#sem-pegadinha .priv,#sem-pegadinha .porque{margin-top:16px}
+  #perguntas{padding-bottom:40px}
+  #perguntas .faq{margin-top:12px}
+}
 </style>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="a24def23-97f7-4bfe-b9e2-e7dc47f63d24" data-domains="gogreen.app.br,www.gogreen.app.br"></script>
 <link rel="stylesheet" href="fone/fone.css">
@@ -437,11 +438,6 @@ p,li,td,th,summary,.small,.lead{text-wrap:pretty}
         <div class="step"><h3>Você confirma</h3><p>Um&nbsp;toque na&nbsp;Entrada. Se&nbsp;corrigir a&nbsp;categoria uma vez, ele aprende e&nbsp;acerta das próximas.</p></div>
       </div>
       <p class="lead" style="margin-top:36px">Dinheiro vivo ou&nbsp;boleto? Use o&nbsp;botão + para lançar à&nbsp;mão. E&nbsp;no&nbsp;fim do&nbsp;mês exporte tudo em&nbsp;CSV para a&nbsp;sua planilha.</p>
-      <div class="teto">
-        <div class="scale" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="scale-legend"><span>OK&nbsp;· até 90%</span><span>Atenção</span><span>Estourou</span></div>
-        <p>No&nbsp;passo 2, cada categoria aparece com a&nbsp;cor do&nbsp;seu <strong>teto mensal</strong>: verde até 90%, amarela até 100% e&nbsp;vermelha acima disso. Contas fixas, como o&nbsp;aluguel, ficam verdes até 100%.</p>
-      </div>
     </div>
   </section>
 
@@ -717,6 +713,21 @@ document.querySelectorAll('[data-car]').forEach(function(car){
     go(i>=max?0:i+1);
   },4000);
 });
+</script>
+<script>
+/* PageDown/PageUp: vai para o começo do bloco seguinte/anterior; bloco maior que a tela rola por partes. */
+(function(){
+  var calmo=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function blocos(){return [].slice.call(document.querySelectorAll('main>section,footer')).map(function(e){return Math.round(e.getBoundingClientRect().top+scrollY)})}
+  addEventListener('keydown',function(e){
+    if(e.key!=='PageDown'&&e.key!=='PageUp')return;
+    var a=document.activeElement;if(a&&(a.isContentEditable||/INPUT|TEXTAREA|SELECT/.test(a.tagName))||document.querySelector('dialog[open]'))return;
+    var y=scrollY,h=innerHeight,t=blocos(),alvo;
+    if(e.key==='PageDown'){var prox=t.filter(function(v){return v>y+4})[0];alvo=(prox!==undefined&&prox<=y+h)?prox:y+h-48}
+    else{var ant=t.filter(function(v){return v<y-4}).pop();if(ant===undefined)ant=0;alvo=(ant>=y-h)?ant:y-h+48}
+    e.preventDefault();scrollTo({top:Math.max(0,alvo),behavior:calmo?'auto':'smooth'});
+  });
+})();
 </script>
 <script src="fone/fone.js" defer></script>
 </body></html>
